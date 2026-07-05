@@ -50,10 +50,6 @@ export default async function NosotrosPage({
           src="/images/hero-muelle.jpg"
           alt="Muelle patagónico"
           className="absolute inset-0 w-full h-full object-cover opacity-30"
-          onError={(e) => {
-            (e.target as HTMLImageElement).src =
-              "https://images.unsplash.com/photo-1524347300729-e8c0dcf45e41?w=1920&q=80&auto=format&fit=crop";
-          }}
         />
         <div className="relative max-w-6xl mx-auto px-4">
           <p className="text-gold-light text-sm font-semibold uppercase tracking-widest mb-3">

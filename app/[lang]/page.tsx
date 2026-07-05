@@ -4,10 +4,10 @@ import { ArrowRight, Fish, Anchor, Globe, Shield } from "lucide-react";
 import { getDictionary, isValidLang, type Lang } from "@/lib/i18n";
 
 const productImages = [
-  { src: "/images/fish-merluza.jpg",  fallback: "https://images.unsplash.com/photo-1534482421-64566f976cfa?w=600&q=80&auto=format&fit=crop" },
-  { src: "/images/seafood-mix.jpg",   fallback: "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=600&q=80&auto=format&fit=crop" },
-  { src: "/images/fish-postas.jpg",   fallback: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&q=80&auto=format&fit=crop" },
-  { src: "/images/hero-patagonia.jpg",fallback: "https://images.unsplash.com/photo-1562802378-063ec186a863?w=600&q=80&auto=format&fit=crop" },
+  "/images/fish-merluza.jpg",
+  "/images/seafood-mix.jpg",
+  "/images/fish-postas.jpg",
+  "/images/hero-patagonia.jpg",
 ];
 
 export default async function HomePage({
@@ -27,9 +27,6 @@ export default async function HomePage({
           src="/images/hero-patagonia.jpg"
           alt="Patagonia Argentina"
           className="absolute inset-0 w-full h-full object-cover"
-          onError={(e) => {
-            (e.target as HTMLImageElement).style.display = "none";
-          }}
         />
         <div className="absolute inset-0 bg-navy-900/75" />
 
@@ -105,7 +102,7 @@ export default async function HomePage({
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {t.products.items.map((product, i) => {
-              const img = productImages[i];
+              const imgSrc = productImages[i];
               return (
                 <div
                   key={product.name}
@@ -114,13 +111,9 @@ export default async function HomePage({
                   {/* Photo */}
                   <div className="relative h-44 overflow-hidden bg-navy-800">
                     <img
-                      src={img.src}
+                      src={imgSrc}
                       alt={product.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      onError={(e) => {
-                        const t = e.target as HTMLImageElement;
-                        if (t.src !== img.fallback) t.src = img.fallback;
-                      }}
                     />
                     <div className="absolute inset-0 bg-navy-900/25" />
                     <div className="absolute bottom-3 left-3">
