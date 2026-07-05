@@ -45,13 +45,22 @@ export default async function NosotrosPage({
 
   return (
     <div>
-      <section className="bg-navy-900 text-white py-16">
-        <div className="max-w-6xl mx-auto px-4">
+      <section className="relative bg-navy-900 text-white py-24 overflow-hidden">
+        <img
+          src="/images/hero-muelle.jpg"
+          alt="Muelle patagónico"
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
+          onError={(e) => {
+            (e.target as HTMLImageElement).src =
+              "https://images.unsplash.com/photo-1524347300729-e8c0dcf45e41?w=1920&q=80&auto=format&fit=crop";
+          }}
+        />
+        <div className="relative max-w-6xl mx-auto px-4">
           <p className="text-gold-light text-sm font-semibold uppercase tracking-widest mb-3">
             1975 →{" "}
             {lang === "es" ? "hoy" : lang === "en" ? "today" : "至今"}
           </p>
-          <h1 className="text-4xl font-bold mb-3">{t.about.title}</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-3">{t.about.title}</h1>
           <p className="text-slate-300 max-w-xl">{t.about.subtitle}</p>
         </div>
       </section>

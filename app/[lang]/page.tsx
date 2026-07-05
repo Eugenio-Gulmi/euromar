@@ -1,18 +1,14 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import {
-  ArrowRight,
-  Fish,
-  Anchor,
-  Globe,
-  Shield,
-  Waves,
-  Droplets,
-  UtensilsCrossed,
-} from "lucide-react";
+import { ArrowRight, Fish, Anchor, Globe, Shield } from "lucide-react";
 import { getDictionary, isValidLang, type Lang } from "@/lib/i18n";
 
-const productIcons = [Fish, Waves, Droplets, UtensilsCrossed];
+const productImages = [
+  { src: "/images/fish-merluza.jpg",  fallback: "https://images.unsplash.com/photo-1534482421-64566f976cfa?w=600&q=80&auto=format&fit=crop" },
+  { src: "/images/seafood-mix.jpg",   fallback: "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=600&q=80&auto=format&fit=crop" },
+  { src: "/images/fish-postas.jpg",   fallback: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&q=80&auto=format&fit=crop" },
+  { src: "/images/hero-patagonia.jpg",fallback: "https://images.unsplash.com/photo-1562802378-063ec186a863?w=600&q=80&auto=format&fit=crop" },
+];
 
 export default async function HomePage({
   params,
@@ -25,21 +21,25 @@ export default async function HomePage({
 
   return (
     <div>
-      {/* Hero */}
-      <section className="relative bg-navy-900 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 20% 50%, #1a3a6b 0%, transparent 50%), radial-gradient(circle at 80% 20%, #1e4d8c 0%, transparent 40%)",
+      {/* Hero — foto de Patagonia o Ushuaia */}
+      <section className="relative min-h-[88vh] flex items-center overflow-hidden">
+        <img
+          src="/images/hero-patagonia.jpg"
+          alt="Patagonia Argentina"
+          className="absolute inset-0 w-full h-full object-cover"
+          onError={(e) => {
+            (e.target as HTMLImageElement).style.display = "none";
           }}
         />
-        <div className="relative max-w-6xl mx-auto px-4 py-28 md:py-36">
+        <div className="absolute inset-0 bg-navy-900/75" />
+
+        <div className="relative z-10 max-w-6xl mx-auto px-4 py-24 w-full">
           <div className="max-w-2xl">
             <p className="flex items-center gap-2 text-gold-light text-sm font-semibold uppercase tracking-widest mb-5">
               <Fish className="w-4 h-4" />
               {t.hero.badge}
             </p>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight tracking-tight">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
               {t.hero.headline}
             </h1>
             <p className="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed max-w-xl">
@@ -94,7 +94,7 @@ export default async function HomePage({
         </div>
       </section>
 
-      {/* Products preview */}
+      {/* Products */}
       <section className="py-20 bg-slate-50">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
@@ -105,17 +105,36 @@ export default async function HomePage({
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {t.products.items.map((product, i) => {
-              const Icon = productIcons[i];
+              const img = productImages[i];
               return (
                 <div
                   key={product.name}
-                  className="bg-white rounded-xl p-6 border border-slate-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
+                  className="bg-white rounded-xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-md hover:-translate-y-0.5 transition-all group"
                 >
-                  <div className="w-12 h-12 rounded-lg bg-navy-900 flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-gold-light" />
+                  {/* Photo */}
+                  <div className="relative h-44 overflow-hidden bg-navy-800">
+                    <img
+                      src={img.src}
+                      alt={product.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      onError={(e) => {
+                        const t = e.target as HTMLImageElement;
+                        if (t.src !== img.fallback) t.src = img.fallback;
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-navy-900/25" />
+                    <div className="absolute bottom-3 left-3">
+                      <span className="bg-navy-900/80 text-white text-xs font-semibold px-2.5 py-1 rounded-full backdrop-blur-sm">
+                        {product.name}
+                      </span>
+                    </div>
                   </div>
-                  <h3 className="font-bold text-navy-900 mb-2">{product.name}</h3>
-                  <p className="text-sm text-slate-500 leading-relaxed">{product.desc}</p>
+                  <div className="p-5">
+                    <p className="text-sm text-slate-500 leading-relaxed mb-3">{product.desc}</p>
+                    <span className="inline-flex items-center gap-1.5 text-xs text-navy-700 font-medium">
+                      <span className="w-1.5 h-1.5 rounded-full bg-gold-light" />{product.detail}
+                    </span>
+                  </div>
                 </div>
               );
             })}
@@ -131,7 +150,7 @@ export default async function HomePage({
         </div>
       </section>
 
-      {/* Services strip */}
+      {/* Services */}
       <section className="py-20 bg-navy-900 text-white">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
