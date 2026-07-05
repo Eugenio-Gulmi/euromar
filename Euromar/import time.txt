@@ -1,0 +1,82 @@
+import time
+import pandas as pd
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from webdriver_manager.chrome import ChromeDriverManager
+
+def scrape_seafood_exhibitors():
+    # 1. Configuración del navegador (Chrome)
+    chrome_options = Options()
+    # chrome_options.add_argument("--headless")  # Descomenta esto para que no se vea la ventana
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+    
+    url = "https://www.seafoodexpo.com/global/exhibitor-lists/"
+    
+    try:
+        print(f"Accediendo a {url}...")
+        driver.get(url)
+        
+        # 2. Manejo de Cookies (Espera a que aparezca el botón de aceptar)
+        try:
+            # Ajusta el selector si el botón tiene otro ID o clase
+            wait = WebDriverWait(driver, 10)
+            cookie_button = wait.until(EC.element_to_be_clickable((By.ID, "onetrust-accept-btn-handler")))
+            cookie_button.click()
+            print("Cookies aceptadas.")
+        except:
+            print("No se encontró banner de cookies o ya fue aceptado.")
+
+        # 3. Esperar a que cargue la lista de expositores
+        # Nota: A veces la lista está dentro de un iframe. Si es así, hay que cambiar el 'frame'
+        time.sleep(5) # Espera manual para carga inicial de JS
+
+        # 4. Lógica de Scroll (Muchas listas cargan a medida que bajas)
+        print("Cargando lista completa...")
+        last_height = driver.execute_script("return document.body.scrollHeight")
+        while True:
+            driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+            time.sleep(2)
+            new_height = driver.execute_script("return document.body.scrollHeight")
+            if new_height == last_height:
+                break
+            last_height = new_height
+
+        # 5. Extracción de datos
+        # IMPORTANTE: Los selectores CSS (.exhibitor-name, etc) deben verificarse 
+        # inspeccionando el código fuente del sitio real en ese momento.
+        exhibitors = []
+        
+        # Ejemplo genérico (ajustar según la estructura real del sitio):
+        items = driver.find_elements(By.CLASS_NAME, "exhibitor-item") # Cambiar por la clase real
+        
+        for item in items:
+            try:
+                name = item.find_element(By.CSS_SELECTOR, "h3").text
+                country = item.find_element(By.CLASS_NAME, "country").text
+                exhibitors.append({
+                    "Nombre": name,
+                    "País": country
+                })
+            except:
+                continue
+
+        # 6. Guardar en Excel/CSV
+        if exhibitors:
+            df = pd.DataFrame(exhibitors)
+            df.to_csv("expositores_seafood_2026.csv", index=False, encoding='utf-8-sig')
+            print(f"Éxito: Se han exportado {len(exhibitors)} expositores.")
+        else:
+            print("No se encontraron datos. Verifica si la lista está dentro de un 'iframe'.")
+
+    finally:
+        driver.quit()
+
+if __name__ == "__main__":
+    scrape_seafood_exhibitors()

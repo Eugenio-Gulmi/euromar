@@ -1,0 +1,97 @@
+{
+  "nav": {
+    "home": "Home",
+    "products": "Products",
+    "services": "Services",
+    "about": "About Us",
+    "contact": "Contact"
+  },
+  "hero": {
+    "headline": "International Seafood Trading",
+    "sub": "Since 1975, connecting Argentina's finest seafood with markets around the world.",
+    "cta_products": "Our Products",
+    "cta_contact": "Get in Touch",
+    "badge": "Mar del Plata, Argentina · Since 1975"
+  },
+  "stats": {
+    "years": "years of experience",
+    "continents": "continents",
+    "services": "services",
+    "partners": "global partners"
+  },
+  "products": {
+    "title": "Our Products",
+    "subtitle": "We select the finest Argentinian seafood for international markets",
+    "cta": "View all products",
+    "items": [
+      {
+        "name": "Fish",
+        "desc": "Hake, squid, corvina and other South Atlantic species in various presentations and sizes.",
+        "detail": "Whole, filleted, IQF frozen or bulk"
+      },
+      {
+        "name": "Shellfish, Crustaceans & Mollusks",
+        "desc": "Shrimp, mussels, squid and other premium species for demanding markets.",
+        "detail": "Fresh, frozen, raw or cooked"
+      },
+      {
+        "name": "Fish Meal & Fish Oil",
+        "desc": "High-protein by-products for the aquaculture and animal feed industry.",
+        "detail": "High protein, low moisture content"
+      },
+      {
+        "name": "Breaded Products",
+        "desc": "Ready-to-cook breaded seafood meeting international quality standards.",
+        "detail": "Custom orders and client specifications"
+      }
+    ]
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "We manage every step of the export chain so you can focus on growing your business",
+    "items": [
+      { "name": "Maritime Bookings", "desc": "Management and coordination of cargo space with international shipping lines." },
+      { "name": "Customs Management", "desc": "Complete export customs documentation processing." },
+      { "name": "Quality Control", "desc": "Product inspection and certification at plant and during loading." },
+      { "name": "Commercialization", "desc": "Positioning and sale of products in international markets." },
+      { "name": "Logistics", "desc": "Comprehensive refrigerated transport coordination from plant to destination port." },
+      { "name": "Production Line Selection", "desc": "Identification of the most suitable production line for each client's needs." },
+      { "name": "Packaging Design", "desc": "Creation and adaptation of packaging for destination market requirements." },
+      { "name": "Market Research", "desc": "Analysis of trends, pricing and demand in target markets." },
+      { "name": "Cold Storage", "desc": "Cold storage reservation management and logistics." }
+    ]
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "Over 45 years connecting Argentinian seafood to the world",
+    "body": "We are a company with over 45 years of experience in the Argentine fishing industry, based in Mar del Plata, the country's main fishing port. Since 1975 we have been dedicated to the commercialization and export of fish, shellfish, and seafood by-products to international markets.",
+    "body2": "We exclusively represent Interocean Brokerage LLC in the United States market, managing purchases from Argentina, Chile, Uruguay, Ecuador, Brazil and Peru. We work alongside Sudamgel S.A.R.L (France) for the European market and with Ayamo Global Foods for commercialization in Brazil.",
+    "partners_title": "Strategic Partners",
+    "values_title": "Why choose us",
+    "values": [
+      { "title": "Experience", "desc": "45 years in the Argentine fishing industry give us unique sector knowledge." },
+      { "title": "Global Network", "desc": "Presence in the US, Europe and Brazil through our strategic partners." },
+      { "title": "Quality", "desc": "Quality control at every stage, from plant to destination port." },
+      { "title": "Full Service", "desc": "We manage the entire chain: purchase, logistics, customs, documentation and delivery." }
+    ]
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Based in Mar del Plata, Argentina — the country's main fishing port",
+    "form_name": "Name",
+    "form_email": "Email",
+    "form_message": "Message",
+    "form_submit": "Send Message",
+    "form_sending": "Sending...",
+    "form_success": "Message sent! We'll get back to you soon.",
+    "form_error": "Error sending. Please try again.",
+    "direct_title": "Direct Contact",
+    "location_title": "Location",
+    "form_title": "Send us a message"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "location": "Mar del Plata, Argentina"
+  },
+  "whatsapp_label": "WhatsApp"
+}

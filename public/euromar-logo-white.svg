@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 90" fill="none">
+  <!-- Orange dot accent -->
+  <circle cx="18" cy="22" r="9" fill="#E85D25"/>
+  <!-- EUROMAR S.A text in white -->
+  <text x="34" y="46" font-family="'Arial Black', 'Helvetica Neue', sans-serif" font-weight="900" font-size="40" fill="#ffffff" font-style="italic" letter-spacing="-0.5">EUROMAR S.A</text>
+  <!-- Frozen Seafoods subtitle in white/translucent -->
+  <text x="37" y="68" font-family="'Arial', 'Helvetica Neue', sans-serif" font-weight="500" font-size="16" fill="rgba(255,255,255,0.75)" letter-spacing="2">·Frozen Seafoods·</text>
+</svg>

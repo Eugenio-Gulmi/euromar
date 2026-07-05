@@ -1,0 +1,97 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "products": "Productos",
+    "services": "Servicios",
+    "about": "Sobre Nosotros",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "headline": "Comercialización Internacional de Mariscos",
+    "sub": "Desde 1975, conectamos los mejores productos del mar argentino con mercados de todo el mundo.",
+    "cta_products": "Ver Productos",
+    "cta_contact": "Contáctanos",
+    "badge": "Mar del Plata, Argentina · Desde 1975"
+  },
+  "stats": {
+    "years": "años de experiencia",
+    "continents": "continentes",
+    "services": "servicios",
+    "partners": "socios globales"
+  },
+  "products": {
+    "title": "Nuestros Productos",
+    "subtitle": "Seleccionamos los mejores productos del mar argentino para el mercado internacional",
+    "cta": "Ver todos los productos",
+    "items": [
+      {
+        "name": "Pescado",
+        "desc": "Merluza, calamar, corvina y más especies del Atlántico Sur en distintas presentaciones y calibres.",
+        "detail": "Entero, fileteado, congelado IQF o a granel"
+      },
+      {
+        "name": "Mariscos, Crustáceos y Moluscos",
+        "desc": "Langostino, mejillón, calamar y otras especies de alta calidad para mercados exigentes.",
+        "detail": "Fresco, congelado, crudo o cocido"
+      },
+      {
+        "name": "Harinas y Aceites de Pescado",
+        "desc": "Subproductos de alta proteína para la industria acuícola y de alimentación animal.",
+        "detail": "Alta proteína, bajo contenido de humedad"
+      },
+      {
+        "name": "Apanados",
+        "desc": "Productos rebozados listos para consumo, elaborados con estándares internacionales de calidad.",
+        "detail": "Bajo pedido y especificaciones del cliente"
+      }
+    ]
+  },
+  "services": {
+    "title": "Nuestros Servicios",
+    "subtitle": "Gestionamos cada etapa de la cadena de exportación para que tú solo te preocupes por crecer",
+    "items": [
+      { "name": "Bookings Marítimos", "desc": "Gestión y coordinación de espacios en líneas navieras internacionales." },
+      { "name": "Gestión de Aduanas", "desc": "Tramitación completa de documentación aduanera de exportación." },
+      { "name": "Control de Calidad", "desc": "Inspección y certificación de productos en planta y durante el embarque." },
+      { "name": "Comercialización", "desc": "Posicionamiento y venta de productos en mercados internacionales." },
+      { "name": "Logística", "desc": "Coordinación integral del transporte refrigerado tierra-puerto-destino." },
+      { "name": "Selección de Producción", "desc": "Identificación y selección de la línea productiva más adecuada para cada cliente." },
+      { "name": "Diseño de Packaging", "desc": "Creación y adaptación de packaging según requerimientos del mercado de destino." },
+      { "name": "Investigación de Mercado", "desc": "Análisis de tendencias, precios y demanda en mercados objetivo." },
+      { "name": "Bodega Frigorífica", "desc": "Gestión de reservas y logística de almacenamiento en frío." }
+    ]
+  },
+  "about": {
+    "title": "Sobre Nosotros",
+    "subtitle": "Más de 45 años conectando el mar argentino con el mundo",
+    "body": "Somos una empresa con más de 45 años de experiencia en la industria pesquera argentina, con base en Mar del Plata, el principal puerto pesquero del país. Desde 1975 nos dedicamos a la comercialización y exportación de pescados, mariscos y subproductos del mar hacia mercados internacionales.",
+    "body2": "Representamos exclusivamente a Interocean Brokerage LLC en el mercado de Estados Unidos, gestionando compras desde Argentina, Chile, Uruguay, Ecuador, Brasil y Perú. Trabajamos junto a Sudamgel S.A.R.L (Francia) para el mercado europeo y con Ayamo Global Foods para la comercialización en Brasil.",
+    "partners_title": "Socios Estratégicos",
+    "values_title": "Por qué elegirnos",
+    "values": [
+      { "title": "Experiencia", "desc": "45 años en la industria pesquera argentina nos dan un conocimiento único del sector." },
+      { "title": "Red Global", "desc": "Presencia en EE.UU., Europa y Brasil a través de nuestros socios estratégicos." },
+      { "title": "Calidad", "desc": "Control de calidad en cada etapa, desde la planta hasta el puerto de destino." },
+      { "title": "Servicio Completo", "desc": "Gestionamos toda la cadena: compra, logística, aduana, documentación y entrega." }
+    ]
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "Estamos en Mar del Plata, Argentina, el principal puerto pesquero del país",
+    "form_name": "Nombre",
+    "form_email": "Email",
+    "form_message": "Mensaje",
+    "form_submit": "Enviar Mensaje",
+    "form_sending": "Enviando...",
+    "form_success": "¡Mensaje enviado! Te responderemos pronto.",
+    "form_error": "Error al enviar. Por favor intentá de nuevo.",
+    "direct_title": "Contacto Directo",
+    "location_title": "Ubicación",
+    "form_title": "Envianos un mensaje"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "location": "Mar del Plata, Argentina"
+  },
+  "whatsapp_label": "WhatsApp"
+}
