@@ -5,9 +5,9 @@ import { getDictionary, isValidLang, type Lang } from "@/lib/i18n";
 
 const productImages = [
   "/images/fish-merluza.jpg",
-  "/images/seafood-mix.jpg",
-  "/images/fish-postas.jpg",
-  "/images/hero-patagonia.jpg",
+  "/images/langostinos.avif",
+  "/images/seafood-calamar.jpg",
+  "/images/apanados-bastones.jpg",
 ];
 
 export default async function HomePage({

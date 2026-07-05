@@ -43,14 +43,16 @@ export default function Header({ lang, nav }: { lang: string; nav: Nav }) {
       <div className="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
         {/* Logo */}
         <Link href={`/${lang}`} className="flex items-center shrink-0">
-          <Image
-            src="/euromar-logo-white.svg"
-            alt="Euromar SA — Frozen Seafoods"
-            width={200}
-            height={44}
-            className="h-9 w-auto"
-            priority
-          />
+          <div className="bg-white rounded-lg px-3 py-1">
+            <Image
+              src="/euromar-logo.jpg"
+              alt="Euromar SA — Frozen Seafoods"
+              width={180}
+              height={40}
+              className="h-8 w-auto"
+              priority
+            />
+          </div>
         </Link>
 
         {/* Desktop nav */}
