@@ -7,7 +7,7 @@ const CDN = "https://cdn.jsdelivr.net/gh/Eugenio-Gulmi/euromar@master/public";
 const productImages = [
   `${CDN}/images/fish-merluza.jpg`,
   `${CDN}/images/langostinos.avif`,
-  `${CDN}/images/seafood-mix.avif`,
+  `${CDN}/images/harina-pescado.jpg`,
   `${CDN}/images/apanados-bastones.jpg`,
 ];
 
