@@ -1,14 +1,14 @@
 import { notFound } from "next/navigation";
-import { Fish, Waves, Droplets, UtensilsCrossed, MapPin, Calendar, Anchor } from "lucide-react";
+import { Fish, Waves, Droplets, UtensilsCrossed, MapPin, Calendar, Anchor, Shell } from "lucide-react";
 import { getDictionary, isValidLang, type Lang } from "@/lib/i18n";
 
 const CDN = "https://cdn.jsdelivr.net/gh/Eugenio-Gulmi/euromar@master/public";
 const icons = [Fish, Waves, Droplets, UtensilsCrossed];
 const categoryPhotos = [
   `${CDN}/images/fish-merluza.jpg`,
-  `${CDN}/images/langostinos.avif`,
-  `${CDN}/images/seafood-calamar.jpg`,
-  `${CDN}/images/apanados-bastones.jpg`,
+  `${CDN}/images/productos-congelados-01-calamar-1-960x640.jpg`,
+  `${CDN}/images/fish-abadejo.jpg`,
+  `${CDN}/images/productos-empanados-mar-02-bastones-merluza-1-960x640.jpg`,
 ];
 
 type LangKey = "es" | "en" | "zh";
@@ -26,6 +26,7 @@ const speciesGroups: {
     zone: Record<LangKey, string>;
     season: string;
     method: Record<LangKey, string>;
+    photo?: string;
   }[];
 }[] = [
   {
@@ -42,6 +43,7 @@ const speciesGroups: {
         zone: { es: "Costas de Argentina", en: "Argentine coast", zh: "阿根廷沿海" },
         season: "Todo el año / Year-round",
         method: { es: "Red de arrastre", en: "Trawl net", zh: "拖网捕捞" },
+        photo: `${CDN}/images/productos-congelados-04-merluza-1-960x640.jpg`,
       },
       {
         name: "Abadejo",
@@ -52,6 +54,7 @@ const speciesGroups: {
         zone: { es: "Sur de Argentina", en: "Southern Argentina", zh: "阿根廷南部" },
         season: "Ago–Dic / Aug–Dec",
         method: { es: "Red de arrastre", en: "Trawl net", zh: "拖网捕捞" },
+        photo: `${CDN}/images/productos-congelados-05-abadejo-1-960x640.jpg`,
       },
       {
         name: "Corvina",
@@ -146,6 +149,35 @@ const speciesGroups: {
     ],
   },
   {
+    category: { es: "Mariscos, Crustáceos y Moluscos", en: "Shellfish, Crustaceans & Mollusks", zh: "贝类、甲壳类与软体类" },
+    icon: Shell,
+    color: "bg-teal-700",
+    species: [
+      {
+        name: "Langostinos Patagónicos",
+        nameEn: "Argentine Red Shrimp",
+        nameZh: "巴塔哥尼亚大虾",
+        scientific: "Pleoticus muelleri",
+        desc: { es: "El langostino silvestre más cotizado del Atlántico Sur. Sabor intenso, carne firme y color coral característico.", en: "The most prized wild shrimp of the South Atlantic. Intense flavor, firm flesh and characteristic coral color.", zh: "南大西洋最受追捧的野生对虾。风味浓郁，肉质紧实，呈标志性珊瑚色。" },
+        zone: { es: "Patagonia Argentina", en: "Argentine Patagonia", zh: "阿根廷巴塔哥尼亚" },
+        season: "Feb–Jun (peak) / Year-round",
+        method: { es: "Red de arrastre", en: "Trawl net", zh: "拖网捕捞" },
+        photo: `${CDN}/images/productos-empanados-mar-04-langostinos-empanados-960x640.jpg`,
+      },
+      {
+        name: "Calamar Patagónico",
+        nameEn: "Patagonian Squid",
+        nameZh: "巴塔哥尼亚鱿鱼",
+        scientific: "Illex argentinus",
+        desc: { es: "Carne blanca y firme, ideal para anillas, tentáculos y productos elaborados. Uno de los moluscos de mayor volumen de exportación argentina.", en: "White and firm flesh, ideal for rings, tentacles and processed products. One of Argentina's highest-volume mollusk exports.", zh: "肉质白嫩紧实，适合制作鱿鱼圈、触须及精加工产品，是阿根廷出口量最大的软体动物之一。" },
+        zone: { es: "Atlántico Sur argentino", en: "South Atlantic (Argentina)", zh: "阿根廷南大西洋" },
+        season: "Feb–May (peak) / Year-round",
+        method: { es: "Jigger / Red de arrastre", en: "Jigger / Trawl net", zh: "鱿鱼钩/拖网捕捞" },
+        photo: `${CDN}/images/productos-congelados-01-calamar-1-960x640.jpg`,
+      },
+    ],
+  },
+  {
     category: { es: "Especies Premium", en: "Premium Species", zh: "优质鱼类" },
     icon: Anchor,
     color: "bg-navy-700",
@@ -169,6 +201,7 @@ const speciesGroups: {
         zone: { es: "Sur de Chile", en: "Southern Chile", zh: "智利南部" },
         season: "Todo el año / Year-round",
         method: { es: "Criadero", en: "Fish farm", zh: "水产养殖" },
+        photo: undefined,
       },
       {
         name: "Atún",
@@ -199,6 +232,57 @@ const speciesGroups: {
         zone: { es: "Centroamérica", en: "Central America", zh: "中美洲" },
         season: "Nov–Mar",
         method: { es: "Red de arrastre de fondo", en: "Bottom trawl", zh: "底拖网" },
+      },
+    ],
+  },
+  {
+    category: { es: "Productos Apanados", en: "Breaded Products", zh: "裹粉制品" },
+    icon: UtensilsCrossed,
+    color: "bg-amber-700",
+    species: [
+      {
+        name: "Bastones de Merluza",
+        nameEn: "Hake Fish Sticks",
+        nameZh: "无须鳕鱼棒",
+        scientific: "Merluccius hubbsi — procesado",
+        desc: { es: "Bastones de merluza rebozados, listos para freír. Crujientes por fuera, jugosos por dentro.", en: "Breaded hake sticks, ready to fry. Crispy on the outside, juicy inside.", zh: "裹粉无须鳕鱼棒，即炸即食，外脆里嫩。" },
+        zone: { es: "Procesado en Mar del Plata", en: "Processed in Mar del Plata", zh: "马德普拉塔加工" },
+        season: "Todo el año / Year-round",
+        method: { es: "Captura + procesado en planta", en: "Wild caught + plant processed", zh: "野生捕捞 + 工厂加工" },
+        photo: `${CDN}/images/productos-empanados-mar-02-bastones-merluza-1-960x640.jpg`,
+      },
+      {
+        name: "Calamar Apanado",
+        nameEn: "Breaded Squid",
+        nameZh: "裹粉鱿鱼",
+        scientific: "Illex argentinus — procesado",
+        desc: { es: "Anillas y tiras de calamar patagónico apanadas. Textura única, sabor intenso.", en: "Breaded Patagonian squid rings and strips. Unique texture, intense flavor.", zh: "裹粉巴塔哥尼亚鱿鱼圈和条，口感独特，风味浓郁。" },
+        zone: { es: "Procesado en Mar del Plata", en: "Processed in Mar del Plata", zh: "马德普拉塔加工" },
+        season: "Todo el año / Year-round",
+        method: { es: "Captura + procesado en planta", en: "Wild caught + plant processed", zh: "野生捕捞 + 工厂加工" },
+        photo: `${CDN}/images/productos-empanados-mar-03-rabas-960x640.jpg`,
+      },
+      {
+        name: "Filet Apanado",
+        nameEn: "Breaded Fillet",
+        nameZh: "裹粉鱼排",
+        scientific: "Merluccius hubbsi — procesado",
+        desc: { es: "Filet de merluza apanado en formato porción. Ideal para foodservice y retail.", en: "Portion-sized breaded hake fillet. Ideal for foodservice and retail.", zh: "份装裹粉无须鳕鱼排，适合餐饮服务和零售。" },
+        zone: { es: "Procesado en Mar del Plata", en: "Processed in Mar del Plata", zh: "马德普拉塔加工" },
+        season: "Todo el año / Year-round",
+        method: { es: "Captura + procesado en planta", en: "Wild caught + plant processed", zh: "野生捕捞 + 工厂加工" },
+        photo: `${CDN}/images/productos-empanados-mar-06-filet-merluza-a-la-romana-960x640.jpg`,
+      },
+      {
+        name: "Formitas de Merluza",
+        nameEn: "Hake Portions",
+        nameZh: "无须鳕鱼排块",
+        scientific: "Merluccius hubbsi — procesado",
+        desc: { es: "Porciones de merluza apanadas en distintos formatos. Ideales para foodservice, catering y segmento infantil.", en: "Breaded hake portions in various formats. Ideal for foodservice, catering and the children's segment.", zh: "各式裹粉无须鳕鱼块，适合餐饮服务、外卖配餐及儿童市场。" },
+        zone: { es: "Procesado en Mar del Plata", en: "Processed in Mar del Plata", zh: "马德普拉塔加工" },
+        season: "Todo el año / Year-round",
+        method: { es: "Captura + procesado en planta", en: "Wild caught + plant processed", zh: "野生捕捞 + 工厂加工" },
+        photo: `${CDN}/images/productos-empanados-mar-05-formitas-de-merluza-960x640.jpg`,
       },
     ],
   },
@@ -332,37 +416,63 @@ export default async function ProductosPage({
                     {group.species.map((sp) => (
                       <div
                         key={sp.scientific}
-                        className="bg-slate-50 border border-slate-100 rounded-xl p-5 hover:border-navy-300 hover:shadow-sm transition-all"
+                        className="bg-slate-50 border border-slate-100 rounded-xl overflow-hidden hover:border-navy-300 hover:shadow-sm transition-all"
                       >
-                        {/* Name */}
-                        <div className="mb-3">
-                          <div className="font-bold text-navy-900 text-base">
-                            {l === "es" ? sp.name : l === "en" ? sp.nameEn : sp.nameZh}
+                        {/* Photo (if available) */}
+                        {sp.photo && (
+                          <div className="relative h-40 overflow-hidden">
+                            <img
+                              src={sp.photo}
+                              alt={sp.name}
+                              className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-navy-900/70 via-transparent to-transparent" />
+                            <div className="absolute bottom-0 left-0 right-0 px-4 py-3">
+                              <div className="font-bold text-white text-sm leading-tight">
+                                {l === "es" ? sp.name : l === "en" ? sp.nameEn : sp.nameZh}
+                              </div>
+                              <div className="text-xs italic text-white/60 mt-0.5">{sp.scientific}</div>
+                            </div>
                           </div>
-                          <div className="text-xs italic text-slate-400 mt-0.5">{sp.scientific}</div>
-                          {l !== "es" && (
-                            <div className="text-xs text-slate-500 mt-0.5">{sp.name}</div>
+                        )}
+
+                        <div className="p-5">
+                          {/* Name (only when no photo) */}
+                          {!sp.photo && (
+                            <div className="mb-3">
+                              <div className="font-bold text-navy-900 text-base">
+                                {l === "es" ? sp.name : l === "en" ? sp.nameEn : sp.nameZh}
+                              </div>
+                              <div className="text-xs italic text-slate-400 mt-0.5">{sp.scientific}</div>
+                              {l !== "es" && (
+                                <div className="text-xs text-slate-500 mt-0.5">{sp.name}</div>
+                              )}
+                            </div>
                           )}
-                        </div>
+                          {/* Alt name when photo shows main name */}
+                          {sp.photo && l !== "es" && (
+                            <div className="text-xs text-slate-400 mb-2">{sp.name}</div>
+                          )}
 
-                        {/* Description */}
-                        <p className="text-sm text-slate-600 leading-relaxed mb-4">
-                          {sp.desc[l]}
-                        </p>
+                          {/* Description */}
+                          <p className="text-sm text-slate-600 leading-relaxed mb-4">
+                            {sp.desc[l]}
+                          </p>
 
-                        {/* Meta info */}
-                        <div className="space-y-1.5">
-                          <div className="flex items-start gap-2 text-xs text-slate-500">
-                            <MapPin className="w-3.5 h-3.5 mt-0.5 shrink-0 text-navy-400" />
-                            <span>{sp.zone[l]}</span>
-                          </div>
-                          <div className="flex items-start gap-2 text-xs text-slate-500">
-                            <Calendar className="w-3.5 h-3.5 mt-0.5 shrink-0 text-navy-400" />
-                            <span>{sp.season}</span>
-                          </div>
-                          <div className="flex items-start gap-2 text-xs text-slate-500">
-                            <Waves className="w-3.5 h-3.5 mt-0.5 shrink-0 text-navy-400" />
-                            <span>{sp.method[l]}</span>
+                          {/* Meta info */}
+                          <div className="space-y-1.5">
+                            <div className="flex items-start gap-2 text-xs text-slate-500">
+                              <MapPin className="w-3.5 h-3.5 mt-0.5 shrink-0 text-navy-400" />
+                              <span>{sp.zone[l]}</span>
+                            </div>
+                            <div className="flex items-start gap-2 text-xs text-slate-500">
+                              <Calendar className="w-3.5 h-3.5 mt-0.5 shrink-0 text-navy-400" />
+                              <span>{sp.season}</span>
+                            </div>
+                            <div className="flex items-start gap-2 text-xs text-slate-500">
+                              <Waves className="w-3.5 h-3.5 mt-0.5 shrink-0 text-navy-400" />
+                              <span>{sp.method[l]}</span>
+                            </div>
                           </div>
                         </div>
                       </div>

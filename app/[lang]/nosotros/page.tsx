@@ -38,9 +38,9 @@ const team = [
       zh: "出口经理",
     },
     bio: {
-      es: "Licenciado en Comercio Internacional, Luciano vivió y trabajó en Shanghai, China, donde desarrolló un profundo conocimiento del mercado asiático y sus cadenas de distribución. Habla con fluidez español, inglés, mandarín, portugués e italiano, lo que lo convierte en el nexo natural de Euromar con compradores de Asia, Europa y Brasil. Su perfil combina la solidez técnica de la exportación pesquera con una red de contactos internacionales de primer nivel.",
-      en: "With a degree in International Trade, Luciano lived and worked in Shanghai, China, where he developed an in-depth knowledge of Asian markets and their distribution chains. He speaks Spanish, English, Mandarin, Portuguese and Italian fluently — making him Euromar's natural bridge to buyers in Asia, Europe and Brazil. His profile combines technical expertise in seafood export with a top-tier international network.",
-      zh: "Luciano拥有国际贸易学位，曾在中国上海生活和工作，深入了解亚洲市场及其分销链。他流利掌握西班牙语、英语、普通话、葡萄牙语和意大利语，是欧罗马公司与亚洲、欧洲及巴西买家之间天然的桥梁。他将扎实的水产出口技术专业知识与顶级国际商业网络完美结合。",
+      es: "Licenciado en Comercio Internacional, Luciano acumuló años de experiencia viviendo y trabajando en Brasil y en Shanghai, China — dos de los mercados estratégicos clave para la exportación pesquera argentina. En Brasil consolidó relaciones comerciales con importadores y distribuidores de la región; en Shanghai profundizó su conocimiento de las cadenas de distribución asiáticas y la cultura de negocios china. Habla con fluidez español, inglés, mandarín, portugués e italiano, convirtiéndose en el nexo directo de Euromar con compradores de cuatro continentes.",
+      en: "With a degree in International Trade, Luciano built years of experience living and working in both Brazil and Shanghai, China — two of the most strategic markets for Argentine seafood exports. In Brazil he established strong commercial relationships with regional importers and distributors; in Shanghai he developed an in-depth understanding of Asian distribution chains and Chinese business culture. He speaks Spanish, English, Mandarin, Portuguese and Italian fluently, making him Euromar's direct link to buyers across four continents.",
+      zh: "Luciano拥有国际贸易学位，曾在巴西和中国上海两地生活和工作多年——这两个地区都是阿根廷水产出口的战略核心市场。在巴西，他与当地进口商和分销商建立了深厚的商业关系；在上海，他深入掌握了亚洲分销链和中国商业文化。他流利掌握西班牙语、英语、普通话、葡萄牙语和意大利语，是欧罗马公司连接四大洲买家的直接纽带。",
     },
     langs: [
       { flag: "🇦🇷", label: "Español" },
@@ -50,9 +50,9 @@ const team = [
       { flag: "🇮🇹", label: "Italiano" },
     ],
     detail: {
-      es: "Basado en Shanghai 2017–2020 · 5 idiomas",
-      en: "Based in Shanghai 2017–2020 · 5 languages",
-      zh: "驻上海 2017–2020 · 5种语言",
+      es: "Shanghai · Brasil · 5 idiomas",
+      en: "Shanghai · Brazil · 5 languages",
+      zh: "上海 · 巴西 · 5种语言",
     },
   },
 ];
@@ -101,8 +101,8 @@ export default async function NosotrosPage({
     <div>
       <section className="relative bg-navy-900 text-white py-24 overflow-hidden">
         <img
-          src="https://cdn.jsdelivr.net/gh/Eugenio-Gulmi/euromar@master/public/images/hero-muelle.jpg"
-          alt="Muelle patagónico"
+          src="https://cdn.jsdelivr.net/gh/Eugenio-Gulmi/euromar@master/public/images/edi-libedinsky-kSG7nXDxZ_E-unsplash.jpg"
+          alt="Puerto de Mar del Plata"
           className="absolute inset-0 w-full h-full object-cover opacity-30"
         />
         <div className="relative max-w-6xl mx-auto px-4">
