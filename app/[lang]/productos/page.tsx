@@ -334,8 +334,8 @@ export default async function ProductosPage({
       {/* Page header */}
       <section className="relative bg-navy-900 text-white py-20 overflow-hidden">
         <img
-          src="https://cdn.jsdelivr.net/gh/Eugenio-Gulmi/euromar@master/public/images/head-productos.jpg"
-          alt="Productos del mar"
+          src="https://cdn.jsdelivr.net/gh/Eugenio-Gulmi/euromar@master/public/images/edi-libedinsky-kSG7nXDxZ_E-unsplash.jpg"
+          alt="Puerto de Mar del Plata"
           className="absolute inset-0 w-full h-full object-cover opacity-35"
         />
         <div className="relative max-w-6xl mx-auto px-4">
