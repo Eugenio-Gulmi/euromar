@@ -42,3 +42,5 @@ next-env.d.ts
 
 # Euromar scraper assets (not part of web project)
 /Euromar/
+
+.vercel

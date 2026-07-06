@@ -76,6 +76,7 @@ const speciesGroups: {
         zone: { es: "Costas de Buenos Aires", en: "Buenos Aires coast", zh: "布宜诺斯艾利斯沿海" },
         season: "Todo el año / Year-round",
         method: { es: "Red de arrastre de fondo", en: "Bottom trawl", zh: "底拖网" },
+        photo: `${CDN}/images/pescadilla.jpg`,
       },
       {
         name: "Hoki",
@@ -86,6 +87,7 @@ const speciesGroups: {
         zone: { es: "Costa Sur de Argentina", en: "Southern Argentine coast", zh: "阿根廷南部沿海" },
         season: "Jun–Sep (peak) / Todo el año",
         method: { es: "Red de arrastre", en: "Trawl net", zh: "拖网捕捞" },
+        photo: `${CDN}/images/hoki.jpg`,
       },
       {
         name: "Besugo",
@@ -96,6 +98,7 @@ const speciesGroups: {
         zone: { es: "Costa de Buenos Aires", en: "Buenos Aires coast", zh: "布宜诺斯艾利斯海岸" },
         season: "Oct–Dic / Oct–Dec",
         method: { es: "Red de arrastre / trampa", en: "Trawl / trap", zh: "拖网/陷阱" },
+        photo: `${CDN}/images/besugo.jpg`,
       },
       {
         name: "Pez Palo",
@@ -116,16 +119,18 @@ const speciesGroups: {
         zone: { es: "Costas de Buenos Aires", en: "Buenos Aires coast", zh: "布宜诺斯艾利斯沿海" },
         season: "Todo el año / Year-round",
         method: { es: "Red de arrastre", en: "Trawl net", zh: "拖网捕捞" },
+        photo: `${CDN}/images/raya.jpg`,
       },
       {
         name: "Salmón Blanco",
-        nameEn: "Peruvian Sandperch",
-        nameZh: "秘鲁沙鲈",
+        nameEn: "Argentine Sandperch",
+        nameZh: "阿根廷沙鲈",
         scientific: "Pseudopercis semifasciata",
         desc: { es: "Carne blanca, textura firme, abundante.", en: "White flesh, firm and abundant.", zh: "白肉，质地紧实，产量丰富。" },
         zone: { es: "Sur de Argentina", en: "Southern Argentina", zh: "阿根廷南部" },
         season: "Oct–Ene / Oct–Jan",
         method: { es: "Red de arrastre", en: "Trawl net", zh: "拖网捕捞" },
+        photo: `${CDN}/images/salmon-blanco.jpg`,
       },
       {
         name: "White Drum",
@@ -136,6 +141,7 @@ const speciesGroups: {
         zone: { es: "Norte de Brasil", en: "Northern Brazil", zh: "巴西北部" },
         season: "Jul–Dic (peak) / Jul–Dec",
         method: { es: "Red de arrastre de fondo", en: "Bottom trawl", zh: "底拖网" },
+        photo: `${CDN}/images/white-drum.jpg`,
       },
       {
         name: "Rape",
@@ -146,6 +152,7 @@ const speciesGroups: {
         zone: { es: "Costa de Brasil", en: "Brazilian coast", zh: "巴西沿海" },
         season: "Todo el año / Year-round",
         method: { es: "Red de arrastre", en: "Trawl net", zh: "拖网捕捞" },
+        photo: `${CDN}/images/rape.jpg`,
       },
     ],
   },
@@ -163,7 +170,7 @@ const speciesGroups: {
         zone: { es: "Patagonia Argentina", en: "Argentine Patagonia", zh: "阿根廷巴塔哥尼亚" },
         season: "Feb–Jun (peak) / Year-round",
         method: { es: "Red de arrastre", en: "Trawl net", zh: "拖网捕捞" },
-        photo: `${CDN}/images/productos-empanados-mar-04-langostinos-empanados-960x640.jpg`,
+        photo: `${CDN}/images/langostino.jpg`,
       },
       {
         name: "Calamar Patagónico",
@@ -174,7 +181,7 @@ const speciesGroups: {
         zone: { es: "Atlántico Sur argentino", en: "South Atlantic (Argentina)", zh: "阿根廷南大西洋" },
         season: "Feb–May (peak) / Year-round",
         method: { es: "Jigger / Red de arrastre", en: "Jigger / Trawl net", zh: "鱿鱼钩/拖网捕捞" },
-        photo: `${CDN}/images/productos-congelados-01-calamar-1-960x640.jpg`,
+        photo: `${CDN}/images/calamar.jpg`,
       },
     ],
   },
