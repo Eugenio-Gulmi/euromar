@@ -6,9 +6,12 @@ import { usePathname, useRouter } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 
 const LANGS = [
-  { code: "es", label: "Español", flag: "🇦🇷" },
-  { code: "en", label: "English", flag: "🇬🇧" },
-  { code: "zh", label: "中文",    flag: "🇨🇳" },
+  { code: "es", label: "Español",    flag: "🇦🇷" },
+  { code: "en", label: "English",    flag: "🇬🇧" },
+  { code: "fr", label: "Français",   flag: "🇫🇷" },
+  { code: "nl", label: "Nederlands", flag: "🇳🇱" },
+  { code: "ar", label: "العربية",    flag: "🇦🇪" },
+  { code: "zh", label: "中文",        flag: "🇨🇳" },
 ];
 
 type Nav = {

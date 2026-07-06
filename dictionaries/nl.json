@@ -1,0 +1,97 @@
+{
+  "nav": {
+    "home": "Home",
+    "products": "Producten",
+    "services": "Diensten",
+    "about": "Over Ons",
+    "contact": "Contact"
+  },
+  "hero": {
+    "headline": "Internationale Zeevruchtenhandel",
+    "sub": "Sinds 1975 verbinden we de beste Argentijnse zeevruchten met markten wereldwijd.",
+    "cta_products": "Onze Producten",
+    "cta_contact": "Neem Contact Op",
+    "badge": "Mar del Plata, Argentinië · Sinds 1975"
+  },
+  "stats": {
+    "years": "jaar ervaring",
+    "continents": "continenten",
+    "services": "diensten",
+    "partners": "wereldwijde partners"
+  },
+  "products": {
+    "title": "Onze Producten",
+    "subtitle": "Wij selecteren de beste Argentijnse zeevruchten voor internationale markten",
+    "cta": "Bekijk alle producten",
+    "items": [
+      {
+        "name": "Vis",
+        "desc": "Heek, corvina, roze slijmaalvis en andere Zuidatlantische soorten in verschillende presentaties en maten.",
+        "detail": "Heel, gefileerd, IQF bevroren of los"
+      },
+      {
+        "name": "Zeevruchten, Schaaldieren en Weekdieren",
+        "desc": "Garnalen, mosselen, inktvis en andere premium soorten voor veeleisende markten.",
+        "detail": "Vers, bevroren, rauw of gekookt"
+      },
+      {
+        "name": "Vismeel en Visolie",
+        "desc": "Eiwitrijke bijproducten voor de aquacultuur en diervoedingindustrie.",
+        "detail": "Hoog eiwitgehalte, laag vochtgehalte"
+      },
+      {
+        "name": "Gepaneerde Producten",
+        "desc": "Klaar-om-te-koken gepaneerde zeevruchten die voldoen aan internationale kwaliteitsnormen.",
+        "detail": "Op bestelling en klantenspecificaties"
+      }
+    ]
+  },
+  "services": {
+    "title": "Onze Diensten",
+    "subtitle": "Wij beheren elke stap van de exportketen zodat u zich kunt richten op groei",
+    "items": [
+      { "name": "Maritime Boekingen", "desc": "Beheer en coördinatie van vrachtruimte bij internationale rederijen." },
+      { "name": "Douanebeheer", "desc": "Volledige verwerking van exportdouanedocumentatie." },
+      { "name": "Kwaliteitscontrole", "desc": "Productinspectie en -certificering bij de fabriek en tijdens het laden." },
+      { "name": "Commercialisering", "desc": "Positionering en verkoop van producten op internationale markten." },
+      { "name": "Logistiek", "desc": "Uitgebreide coördinatie van gekoeld transport van fabriek tot bestemmingshaven." },
+      { "name": "Productielijnselectie", "desc": "Identificatie van de meest geschikte productielijn voor de behoeften van elke klant." },
+      { "name": "Verpakkingsontwerp", "desc": "Creatie en aanpassing van verpakkingen voor de vereisten van de bestemmingsmarkt." },
+      { "name": "Marktonderzoek", "desc": "Analyse van trends, prijzen en vraag in doelmarkten." },
+      { "name": "Koude Opslag", "desc": "Beheer van reserveringen en logistiek van koude opslag." }
+    ]
+  },
+  "about": {
+    "title": "Over Ons",
+    "subtitle": "Meer dan 45 jaar Argentijnse zeevruchten verbinden met de wereld",
+    "body": "Wij zijn een bedrijf met meer dan 45 jaar ervaring in de Argentijnse visserij-industrie, gevestigd in Mar del Plata, de belangrijkste vissershaven van het land. Sinds 1975 houden wij ons bezig met de commercialisering en export van vis, zeevruchten en bijproducten van de zee naar internationale markten.",
+    "body2": "Wij vertegenwoordigen exclusief Interocean Brokerage LLC op de Amerikaanse markt, waarbij we aankopen beheren vanuit Argentinië, Chili, Uruguay, Ecuador, Brazilië en Peru. We werken samen met Sudamgel S.A.R.L (Frankrijk) voor de Europese markt en met Ayamo Global Foods voor commercialisering in Brazilië.",
+    "partners_title": "Strategische Partners",
+    "values_title": "Waarom ons kiezen",
+    "values": [
+      { "title": "Ervaring", "desc": "45 jaar in de Argentijnse visserij-industrie geeft ons unieke sectorkennis." },
+      { "title": "Mondiaal Netwerk", "desc": "Aanwezigheid in de VS, Europa en Brazilië via onze strategische partners." },
+      { "title": "Kwaliteit", "desc": "Kwaliteitscontrole in elke fase, van fabriek tot bestemmingshaven." },
+      { "title": "Volledige Service", "desc": "Wij beheren de gehele keten: aankoop, logistiek, douane, documentatie en levering." }
+    ]
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Gevestigd in Mar del Plata, Argentinië — de belangrijkste vissershaven van het land",
+    "form_name": "Naam",
+    "form_email": "E-mail",
+    "form_message": "Bericht",
+    "form_submit": "Bericht Versturen",
+    "form_sending": "Verzenden...",
+    "form_success": "Bericht verzonden! We nemen snel contact met u op.",
+    "form_error": "Fout bij verzenden. Probeer het opnieuw.",
+    "direct_title": "Direct Contact",
+    "location_title": "Locatie",
+    "form_title": "Stuur ons een bericht"
+  },
+  "footer": {
+    "rights": "Alle rechten voorbehouden.",
+    "location": "Mar del Plata, Argentinië"
+  },
+  "whatsapp_label": "WhatsApp"
+}

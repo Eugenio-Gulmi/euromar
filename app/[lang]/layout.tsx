@@ -16,12 +16,14 @@ export default async function LangLayout({
 
   const t = await getDictionary(lang as Lang);
 
+  const dir = lang === "ar" ? "rtl" : "ltr";
+
   return (
-    <>
+    <div dir={dir}>
       <Header lang={lang} nav={t.nav} />
       <main className="flex-1">{children}</main>
       <Footer lang={lang} t={t} />
       <WhatsAppButton label={t.whatsapp_label} />
-    </>
+    </div>
   );
 }

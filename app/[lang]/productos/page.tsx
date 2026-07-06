@@ -12,6 +12,7 @@ const categoryPhotos = [
 ];
 
 type LangKey = "es" | "en" | "zh";
+type SiteLang = LangKey | "fr" | "nl" | "ar";
 
 const speciesGroups: {
   category: Record<LangKey, string>;
@@ -30,7 +31,7 @@ const speciesGroups: {
   }[];
 }[] = [
   {
-    category: { es: "Pescados Blancos", en: "White Fish", zh: "白鱼类" },
+    category: { es: "Pescados Blancos", en: "White Fish", zh: "白鱼类", fr: "Poissons Blancs", nl: "Witte Vis", ar: "الأسماك البيضاء" },
     icon: Fish,
     color: "bg-navy-900",
     species: [
@@ -157,7 +158,7 @@ const speciesGroups: {
     ],
   },
   {
-    category: { es: "Mariscos, Crustáceos y Moluscos", en: "Shellfish, Crustaceans & Mollusks", zh: "贝类、甲壳类与软体类" },
+    category: { es: "Mariscos, Crustáceos y Moluscos", en: "Shellfish, Crustaceans & Mollusks", zh: "贝类、甲壳类与软体类", fr: "Fruits de Mer, Crustacés et Mollusques", nl: "Zeevruchten, Schaaldieren en Weekdieren", ar: "المأكولات البحرية والقشريات والرخويات" },
     icon: Shell,
     color: "bg-teal-700",
     species: [
@@ -186,7 +187,7 @@ const speciesGroups: {
     ],
   },
   {
-    category: { es: "Especies Premium", en: "Premium Species", zh: "优质鱼类" },
+    category: { es: "Especies Premium", en: "Premium Species", zh: "优质鱼类", fr: "Espèces Premium", nl: "Premium Soorten", ar: "الأنواع المميزة" },
     icon: Anchor,
     color: "bg-navy-700",
     species: [
@@ -248,7 +249,7 @@ const speciesGroups: {
     ],
   },
   {
-    category: { es: "Productos Apanados", en: "Breaded Products", zh: "裹粉制品" },
+    category: { es: "Productos Apanados", en: "Breaded Products", zh: "裹粉制品", fr: "Produits Panés", nl: "Gepaneerde Producten", ar: "المنتجات المغطاة" },
     icon: UtensilsCrossed,
     color: "bg-amber-700",
     species: [
@@ -300,35 +301,41 @@ const speciesGroups: {
   },
 ];
 
-const captureLabel: Record<LangKey, string> = {
-  es: "Zona de captura",
-  en: "Capture zone",
-  zh: "捕获区域",
+const captureLabel: Record<SiteLang, string> = {
+  es: "Zona de captura", en: "Capture zone", zh: "捕获区域",
+  fr: "Zone de capture", nl: "Vangstgebied", ar: "منطقة الصيد",
 };
-const seasonLabel: Record<LangKey, string> = {
-  es: "Temporada",
-  en: "Season",
-  zh: "季节",
+const seasonLabel: Record<SiteLang, string> = {
+  es: "Temporada", en: "Season", zh: "季节",
+  fr: "Saison", nl: "Seizoen", ar: "الموسم",
 };
-const methodLabel: Record<LangKey, string> = {
-  es: "Método",
-  en: "Method",
-  zh: "方法",
+const methodLabel: Record<SiteLang, string> = {
+  es: "Método", en: "Method", zh: "方法",
+  fr: "Méthode", nl: "Methode", ar: "الطريقة",
 };
-const catalogTitle: Record<LangKey, string> = {
+const catalogTitle: Record<SiteLang, string> = {
   es: "Catálogo Completo de Especies",
   en: "Full Species Catalog",
   zh: "完整鱼类目录",
+  fr: "Catalogue Complet des Espèces",
+  nl: "Volledig Soortenboekje",
+  ar: "كتالوج الأنواع الكامل",
 };
-const catalogSub: Record<LangKey, string> = {
+const catalogSub: Record<SiteLang, string> = {
   es: "Trabajamos con más de 15 especies del Atlántico Sur y el Pacífico. Todos los productos se adaptan a las especificaciones del cliente.",
   en: "We work with over 15 species from the South Atlantic and Pacific. All products are adapted to customer specifications.",
   zh: "我们经营来自南大西洋和太平洋的15余种鱼类，所有产品均可根据客户要求定制。",
+  fr: "Nous travaillons avec plus de 15 espèces de l'Atlantique Sud et du Pacifique. Tous les produits sont adaptés aux spécifications du client.",
+  nl: "We werken met meer dan 15 soorten uit de Zuidelijke Atlantische Oceaan en de Stille Oceaan. Alle producten worden aangepast aan klantenspecificaties.",
+  ar: "نعمل مع أكثر من 15 نوعًا من جنوب الأطلسي والمحيط الهادئ. تُكيَّف جميع المنتجات وفق مواصفات العميل.",
 };
-const noteText: Record<LangKey, string> = {
+const noteText: Record<SiteLang, string> = {
   es: "* Las formas de packaging no son excluyentes. Todo producto puede adaptarse a las necesidades del cliente en cuanto a presentación, calibre y certificaciones.",
   en: "* Packaging formats are not exclusive. Every product can be adapted to the customer's needs in terms of presentation, size, and certifications.",
   zh: "* 包装形式不受限制。所有产品均可根据客户在产品规格、尺寸和认证方面的要求进行调整。",
+  fr: "* Les formats d'emballage ne sont pas exclusifs. Chaque produit peut être adapté aux besoins du client en termes de présentation, calibre et certifications.",
+  nl: "* Verpakkingsformaten zijn niet exclusief. Elk product kan worden aangepast aan de behoeften van de klant wat betreft presentatie, maat en certificeringen.",
+  ar: "* أشكال التغليف غير حصرية. يمكن تكييف كل منتج وفق احتياجات العميل من حيث العرض والحجم والشهادات.",
 };
 
 export default async function ProductosPage({
@@ -339,7 +346,8 @@ export default async function ProductosPage({
   const { lang } = await params;
   if (!isValidLang(lang)) notFound();
   const t = await getDictionary(lang as Lang);
-  const l = lang as LangKey;
+  const l = lang as SiteLang;
+  const lk: LangKey = (l === "es" || l === "en" || l === "zh") ? l : "en";
 
   return (
     <div>
@@ -416,10 +424,10 @@ export default async function ProductosPage({
                     <div className={`${group.color} w-10 h-10 rounded-lg flex items-center justify-center`}>
                       <GroupIcon className="w-5 h-5 text-gold-light" />
                     </div>
-                    <h3 className="text-2xl font-bold text-navy-900">{group.category[l]}</h3>
+                    <h3 className="text-2xl font-bold text-navy-900">{(group.category as Record<SiteLang, string>)[l]}</h3>
                     <div className="flex-1 h-px bg-slate-200 ml-2" />
                     <span className="text-sm text-slate-400 font-medium">
-                      {group.species.length} {l === "es" ? "especies" : l === "en" ? "species" : "种"}
+                      {group.species.length} {l === "es" ? "especies" : l === "fr" ? "espèces" : l === "nl" ? "soorten" : l === "ar" ? "أنواع" : l === "zh" ? "种" : "species"}
                     </span>
                   </div>
 
@@ -441,7 +449,7 @@ export default async function ProductosPage({
                             <div className="absolute inset-0 bg-gradient-to-t from-navy-900/70 via-transparent to-transparent" />
                             <div className="absolute bottom-0 left-0 right-0 px-4 py-3">
                               <div className="font-bold text-white text-sm leading-tight">
-                                {l === "es" ? sp.name : l === "en" ? sp.nameEn : sp.nameZh}
+                                {(l === "zh") ? sp.nameZh : (l === "es") ? sp.name : sp.nameEn}
                               </div>
                               <div className="text-xs italic text-white/60 mt-0.5">{sp.scientific}</div>
                             </div>
@@ -453,7 +461,7 @@ export default async function ProductosPage({
                           {!sp.photo && (
                             <div className="mb-3">
                               <div className="font-bold text-navy-900 text-base">
-                                {l === "es" ? sp.name : l === "en" ? sp.nameEn : sp.nameZh}
+                                {(l === "zh") ? sp.nameZh : (l === "es") ? sp.name : sp.nameEn}
                               </div>
                               <div className="text-xs italic text-slate-400 mt-0.5">{sp.scientific}</div>
                               {l !== "es" && (
@@ -468,14 +476,14 @@ export default async function ProductosPage({
 
                           {/* Description */}
                           <p className="text-sm text-slate-600 leading-relaxed mb-4">
-                            {sp.desc[l]}
+                            {sp.desc[lk]}
                           </p>
 
                           {/* Meta info */}
                           <div className="space-y-1.5">
                             <div className="flex items-start gap-2 text-xs text-slate-500">
                               <MapPin className="w-3.5 h-3.5 mt-0.5 shrink-0 text-navy-400" />
-                              <span>{sp.zone[l]}</span>
+                              <span>{sp.zone[lk]}</span>
                             </div>
                             <div className="flex items-start gap-2 text-xs text-slate-500">
                               <Calendar className="w-3.5 h-3.5 mt-0.5 shrink-0 text-navy-400" />
@@ -483,7 +491,7 @@ export default async function ProductosPage({
                             </div>
                             <div className="flex items-start gap-2 text-xs text-slate-500">
                               <Waves className="w-3.5 h-3.5 mt-0.5 shrink-0 text-navy-400" />
-                              <span>{sp.method[l]}</span>
+                              <span>{sp.method[lk]}</span>
                             </div>
                           </div>
                         </div>
@@ -509,6 +517,9 @@ export default async function ProductosPage({
           <p className="text-slate-300 text-lg leading-relaxed">
             {l === "es" && "Todos nuestros productos pueden adaptarse a las especificaciones y requerimientos de tu mercado. Contáctanos para más información."}
             {l === "en" && "All our products can be adapted to your market's specifications and requirements. Contact us for more information."}
+            {l === "fr" && "Tous nos produits peuvent être adaptés aux spécifications et exigences de votre marché. Contactez-nous pour plus d'informations."}
+            {l === "nl" && "Al onze producten kunnen worden aangepast aan de specificaties en vereisten van uw markt. Neem contact met ons op voor meer informatie."}
+            {l === "ar" && "جميع منتجاتنا قابلة للتكيف مع متطلبات سوقك وخصائصه. تواصل معنا للمزيد من المعلومات."}
             {l === "zh" && "我们所有产品均可根据您市场的规格和要求进行定制。请联系我们了解更多信息。"}
           </p>
         </div>
