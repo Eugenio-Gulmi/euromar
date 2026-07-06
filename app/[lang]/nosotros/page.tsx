@@ -2,7 +2,60 @@ import { notFound } from "next/navigation";
 import { Shield, Globe, CheckCircle, Handshake } from "lucide-react";
 import { getDictionary, isValidLang, type Lang } from "@/lib/i18n";
 
+const CDN = "https://cdn.jsdelivr.net/gh/Eugenio-Gulmi/euromar@master/public";
+
 const valueIcons = [Shield, Globe, CheckCircle, Handshake];
+
+type LangKey = "es" | "en" | "zh";
+
+const team = [
+  {
+    name: "Hugo Pedeconi",
+    photo: `${CDN}/images/hugo-pedeconi.jpg`,
+    role: {
+      es: "Presidente",
+      en: "President",
+      zh: "总裁",
+    },
+    bio: {
+      es: "Más de 43 años al frente de Euromar S.A. Licenciado en Comercio Exterior, Hugo es uno de los referentes históricos del sector pesquero argentino. Especialista en intermediación y bróker de pesca, con foco principal en las pesquerías del Atlántico Sur. Su trayectoria abarca desde la gestión operativa en planta hasta la negociación directa con armadores, frigoríficos y compradores internacionales.",
+      en: "Over 43 years leading Euromar S.A. With a degree in Foreign Trade, Hugo is one of Argentina's most experienced figures in the fishing industry. A specialist in fishing brokerage and intermediation, with a primary focus on South Atlantic fisheries. His career spans from plant operations management to direct negotiation with shipowners, cold-storage plants, and international buyers.",
+      zh: "在欧罗马公司任职超过43年。毕业于对外贸易专业，Hugo是阿根廷渔业领域最具经验的人士之一。专注于南大西洋渔业的渔业经纪与中介业务，拥有从工厂运营管理到直接与船东、冷藏工厂及国际买家谈判的丰富经历。",
+    },
+    langs: null,
+    detail: {
+      es: "Especialista en Atlántico Sur · Desde 1983",
+      en: "South Atlantic Expert · Since 1983",
+      zh: "南大西洋专家 · 自1983年",
+    },
+  },
+  {
+    name: "Luciano Gulminelli",
+    photo: `${CDN}/images/luciano-gulminelli.jpg`,
+    role: {
+      es: "Export Manager",
+      en: "Export Manager",
+      zh: "出口经理",
+    },
+    bio: {
+      es: "Licenciado en Comercio Internacional, Luciano vivió y trabajó en Shanghai, China, donde desarrolló un profundo conocimiento del mercado asiático y sus cadenas de distribución. Habla con fluidez español, inglés, mandarín, portugués e italiano, lo que lo convierte en el nexo natural de Euromar con compradores de Asia, Europa y Brasil. Su perfil combina la solidez técnica de la exportación pesquera con una red de contactos internacionales de primer nivel.",
+      en: "With a degree in International Trade, Luciano lived and worked in Shanghai, China, where he developed an in-depth knowledge of Asian markets and their distribution chains. He speaks Spanish, English, Mandarin, Portuguese and Italian fluently — making him Euromar's natural bridge to buyers in Asia, Europe and Brazil. His profile combines technical expertise in seafood export with a top-tier international network.",
+      zh: "Luciano拥有国际贸易学位，曾在中国上海生活和工作，深入了解亚洲市场及其分销链。他流利掌握西班牙语、英语、普通话、葡萄牙语和意大利语，是欧罗马公司与亚洲、欧洲及巴西买家之间天然的桥梁。他将扎实的水产出口技术专业知识与顶级国际商业网络完美结合。",
+    },
+    langs: [
+      { flag: "🇦🇷", label: "Español" },
+      { flag: "🇬🇧", label: "English" },
+      { flag: "🇨🇳", label: "中文" },
+      { flag: "🇧🇷", label: "Português" },
+      { flag: "🇮🇹", label: "Italiano" },
+    ],
+    detail: {
+      es: "Basado en Shanghai 2017–2020 · 5 idiomas",
+      en: "Based in Shanghai 2017–2020 · 5 languages",
+      zh: "驻上海 2017–2020 · 5种语言",
+    },
+  },
+];
 
 const partners = [
   {
@@ -42,6 +95,7 @@ export default async function NosotrosPage({
   const { lang } = await params;
   if (!isValidLang(lang)) notFound();
   const t = await getDictionary(lang as Lang);
+  const l = lang as LangKey;
 
   return (
     <div>
@@ -69,8 +123,52 @@ export default async function NosotrosPage({
         </div>
       </section>
 
-      {/* Values */}
+      {/* Team */}
       <section className="py-16 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-2xl font-bold text-navy-900 mb-10 text-center">
+            {l === "es" ? "Nuestro Equipo" : l === "en" ? "Our Team" : "我们的团队"}
+          </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {team.map((member) => (
+              <div key={member.name} className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100">
+                {/* Header with photo */}
+                <div className="flex items-center gap-5 p-6 border-b border-slate-100">
+                  <img
+                    src={member.photo}
+                    alt={member.name}
+                    className="w-20 h-20 rounded-full object-cover object-top border-2 border-slate-200 shrink-0"
+                  />
+                  <div className="flex-1 min-w-0">
+                    <div className="font-bold text-navy-900 text-lg">{member.name}</div>
+                    <div className="text-sm text-gold-light font-semibold mb-2">{member.role[l]}</div>
+                    {member.langs && (
+                      <div className="flex items-center gap-1.5 flex-wrap">
+                        {member.langs.map((fl) => (
+                          <span key={fl.label} title={fl.label} className="text-xl leading-none" aria-label={fl.label}>
+                            {fl.flag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+                {/* Bio */}
+                <div className="p-6">
+                  <p className="text-slate-600 text-sm leading-relaxed mb-4">{member.bio[l]}</p>
+                  <div className="inline-flex items-center gap-2 bg-navy-900/5 border border-navy-900/10 rounded-lg px-3 py-1.5 text-xs text-navy-700 font-medium">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold-light shrink-0" />
+                    {member.detail[l]}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Values */}
+      <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-2xl font-bold text-navy-900 mb-10 text-center">
             {t.about.values_title}
