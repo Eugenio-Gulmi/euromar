@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
@@ -44,13 +43,11 @@ export default function Header({ lang, nav }: { lang: string; nav: Nav }) {
         {/* Logo */}
         <Link href={`/${lang}`} className="flex items-center shrink-0">
           <div className="bg-white rounded-lg px-3 py-1">
-            <Image
-              src="/euromar-logo.jpg"
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://cdn.jsdelivr.net/gh/Eugenio-Gulmi/euromar@master/public/euromar-logo.jpg"
               alt="Euromar SA — Frozen Seafoods"
-              width={180}
-              height={40}
               className="h-8 w-auto"
-              priority
             />
           </div>
         </Link>

@@ -2,8 +2,14 @@ import { notFound } from "next/navigation";
 import { Fish, Waves, Droplets, UtensilsCrossed, MapPin, Calendar, Anchor } from "lucide-react";
 import { getDictionary, isValidLang, type Lang } from "@/lib/i18n";
 
+const CDN = "https://cdn.jsdelivr.net/gh/Eugenio-Gulmi/euromar@master/public";
 const icons = [Fish, Waves, Droplets, UtensilsCrossed];
-const bgColors = ["bg-navy-900", "bg-navy-800", "bg-navy-700", "bg-navy-600"];
+const categoryPhotos = [
+  `${CDN}/images/fish-merluza.jpg`,
+  `${CDN}/images/langostinos.avif`,
+  `${CDN}/images/seafood-calamar.jpg`,
+  `${CDN}/images/apanados-bastones.jpg`,
+];
 
 type LangKey = "es" | "en" | "zh";
 
@@ -263,18 +269,27 @@ export default async function ProductosPage({
               return (
                 <div
                   key={product.name}
-                  className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-md transition-shadow"
+                  className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-lg hover:-translate-y-0.5 transition-all group"
                 >
-                  <div className={`${bgColors[i]} p-8 flex items-center gap-4`}>
-                    <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center">
-                      <Icon className="w-8 h-8 text-gold-light" />
+                  {/* Photo header */}
+                  <div className="relative h-52 overflow-hidden">
+                    <img
+                      src={categoryPhotos[i]}
+                      alt={product.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy-900/85 via-navy-900/40 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-5 flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-xl bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center shrink-0">
+                        <Icon className="w-5 h-5 text-gold-light" />
+                      </div>
+                      <h2 className="text-lg font-bold text-white leading-tight">{product.name}</h2>
                     </div>
-                    <h2 className="text-xl font-bold text-white">{product.name}</h2>
                   </div>
-                  <div className="p-8">
-                    <p className="text-slate-600 leading-relaxed mb-4">{product.desc}</p>
+                  <div className="p-6">
+                    <p className="text-slate-600 leading-relaxed mb-4 text-sm">{product.desc}</p>
                     <div className="inline-flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 text-sm text-slate-600">
-                      <span className="w-2 h-2 rounded-full bg-gold-light" />
+                      <span className="w-2 h-2 rounded-full bg-gold-light shrink-0" />
                       {product.detail}
                     </div>
                   </div>
