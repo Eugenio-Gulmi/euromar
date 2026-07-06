@@ -8,11 +8,19 @@ const contacts = [
     name: "Hugo Pedeconi",
     phone: "+54 223 421-7777",
     email: "hpedeconi@euromar.com.ar",
+    langs: null,
   },
   {
     name: "Luciano Gulminelli",
     phone: "+54 223 594-2314",
     email: "lgulminellibarrau@gb-grp.com",
+    langs: [
+      { flag: "🇦🇷", label: "Español" },
+      { flag: "🇬🇧", label: "English" },
+      { flag: "🇨🇳", label: "中文" },
+      { flag: "🇧🇷", label: "Português" },
+      { flag: "🇮🇹", label: "Italiano" },
+    ],
   },
 ];
 
@@ -67,7 +75,18 @@ export default async function ContactoPage({
                     key={c.name}
                     className="bg-white rounded-xl p-5 border border-slate-100 shadow-sm"
                   >
-                    <div className="font-semibold text-navy-900 mb-3">{c.name}</div>
+                    <div className="flex items-start justify-between gap-2 mb-3">
+                      <div className="font-semibold text-navy-900">{c.name}</div>
+                      {c.langs && (
+                        <div className="flex items-center gap-1">
+                          {c.langs.map((l) => (
+                            <span key={l.label} title={l.label} className="text-lg leading-none">
+                              {l.flag}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                     <div className="space-y-2 text-sm text-slate-600">
                       <a
                         href={`tel:${c.phone.replace(/\s/g, "")}`}
