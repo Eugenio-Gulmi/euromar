@@ -3,7 +3,7 @@ import { Phone, Mail, MapPin } from "lucide-react";
 import { getDictionary, isValidLang, type Lang } from "@/lib/i18n";
 import ContactForm from "@/components/ContactForm";
 
-const CDN = "https://cdn.jsdelivr.net/gh/Eugenio-Gulmi/euromar@master/public";
+const CDN = "";
 
 const contacts = [
   {

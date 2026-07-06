@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { Shield, Globe, CheckCircle, Handshake } from "lucide-react";
 import { getDictionary, isValidLang, type Lang } from "@/lib/i18n";
 
-const CDN = "https://cdn.jsdelivr.net/gh/Eugenio-Gulmi/euromar@master/public";
+const CDN = "";
 
 const valueIcons = [Shield, Globe, CheckCircle, Handshake];
 
@@ -101,7 +101,7 @@ export default async function NosotrosPage({
     <div>
       <section className="relative bg-navy-900 text-white py-24 overflow-hidden">
         <img
-          src="https://cdn.jsdelivr.net/gh/Eugenio-Gulmi/euromar@master/public/images/edi-libedinsky-kSG7nXDxZ_E-unsplash.jpg"
+          src="/images/edi-libedinsky-kSG7nXDxZ_E-unsplash.jpg"
           alt="Puerto de Mar del Plata"
           className="absolute inset-0 w-full h-full object-cover opacity-30"
         />

@@ -61,7 +61,7 @@ export default function Header({ lang, nav }: { lang: string; nav: Nav }) {
           <div className="bg-white rounded-lg px-3 py-1">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="https://cdn.jsdelivr.net/gh/Eugenio-Gulmi/euromar@master/public/euromar-logo.jpg"
+              src="/euromar-logo.jpg"
               alt="Euromar SA — Frozen Seafoods"
               className="h-8 w-auto"
             />
