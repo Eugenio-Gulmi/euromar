@@ -93,7 +93,6 @@ export default function Header({ lang, nav }: { lang: string; nav: Nav }) {
               onClick={() => setLangOpen(!langOpen)}
               className="flex items-center gap-2 bg-white/10 hover:bg-white/15 rounded-lg px-3 py-2 text-sm font-medium transition-colors"
             >
-              <span className="text-base leading-none">{current.flag}</span>
               <span className="text-white/90">{current.label}</span>
               <ChevronDown className={`w-3.5 h-3.5 text-white/50 transition-transform ${langOpen ? "rotate-180" : ""}`} />
             </button>
