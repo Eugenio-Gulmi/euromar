@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "Euromar SA | Comercialización Internacional de Mariscos",
   description:
     "Empresa argentina de exportación de pescados y mariscos con más de 45 años de experiencia. Exportamos a todo el mundo desde Mar del Plata.",
+  icons: {
+    icon: "/euromar-logo.svg",
+    shortcut: "/euromar-logo.svg",
+    apple: "/euromar-logo.svg",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
