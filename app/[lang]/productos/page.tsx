@@ -332,8 +332,13 @@ export default async function ProductosPage({
   return (
     <div>
       {/* Page header */}
-      <section className="bg-navy-900 text-white py-20">
-        <div className="max-w-6xl mx-auto px-4">
+      <section className="relative bg-navy-900 text-white py-24 overflow-hidden">
+        <img
+          src="/images/hero-muelle.jpg"
+          alt="Puerto Mar del Plata"
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
+        />
+        <div className="relative max-w-6xl mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-3">{t.products.title}</h1>
           <p className="text-slate-300 max-w-xl">{t.products.subtitle}</p>
         </div>
