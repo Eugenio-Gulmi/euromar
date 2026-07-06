@@ -7,7 +7,7 @@ const icons = [Fish, Waves, Droplets, UtensilsCrossed];
 const categoryPhotos = [
   `${CDN}/images/fish-merluza.jpg`,
   `${CDN}/images/productos-congelados-01-calamar-1-960x640.jpg`,
-  `${CDN}/images/fish-abadejo.jpg`,
+  `${CDN}/images/harina-pescado.jpg`,
   `${CDN}/images/productos-empanados-mar-02-bastones-merluza-1-960x640.jpg`,
 ];
 

@@ -1,14 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 const LANGS = [
-  { code: "es", label: "Español", short: "ES" },
-  { code: "en", label: "English", short: "EN" },
-  { code: "zh", label: "中文", short: "中" },
+  { code: "es", label: "Español", flag: "🇦🇷" },
+  { code: "en", label: "English", flag: "🇬🇧" },
+  { code: "zh", label: "中文",    flag: "🇨🇳" },
 ];
 
 type Nav = {
@@ -20,8 +20,13 @@ type Nav = {
 };
 
 export default function Header({ lang, nav }: { lang: string; nav: Nav }) {
-  const [open, setOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
+  const langRef = useRef<HTMLDivElement>(null);
+
+  const current = LANGS.find((l) => l.code === lang) ?? LANGS[0];
 
   const navItems = [
     { href: `/${lang}`, label: nav.home },
@@ -36,6 +41,17 @@ export default function Header({ lang, nav }: { lang: string; nav: Nav }) {
     segments[1] = newLang;
     return segments.join("/") || `/${newLang}`;
   }
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (langRef.current && !langRef.current.contains(e.target as Node)) {
+        setLangOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
 
   return (
     <header className="bg-navy-900 text-white sticky top-0 z-50 shadow-lg border-b border-white/5">
@@ -71,37 +87,51 @@ export default function Header({ lang, nav }: { lang: string; nav: Nav }) {
         </nav>
 
         <div className="flex items-center gap-2">
-          {/* Language switcher — larger + labeled */}
-          <div className="hidden sm:flex items-center gap-px bg-white/10 rounded-lg p-0.5">
-            {LANGS.map((l) => (
-              <Link
-                key={l.code}
-                href={switchLang(l.code)}
-                title={l.label}
-                className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all ${
-                  lang === l.code
-                    ? "bg-gold text-navy-900 shadow-sm"
-                    : "text-white/70 hover:text-white hover:bg-white/10"
-                }`}
-              >
-                {l.short}
-              </Link>
-            ))}
+          {/* Language dropdown */}
+          <div className="hidden sm:block relative" ref={langRef}>
+            <button
+              onClick={() => setLangOpen(!langOpen)}
+              className="flex items-center gap-2 bg-white/10 hover:bg-white/15 rounded-lg px-3 py-2 text-sm font-medium transition-colors"
+            >
+              <span className="text-base leading-none">{current.flag}</span>
+              <span className="text-white/90">{current.label}</span>
+              <ChevronDown className={`w-3.5 h-3.5 text-white/50 transition-transform ${langOpen ? "rotate-180" : ""}`} />
+            </button>
+
+            {langOpen && (
+              <div className="absolute right-0 top-full mt-1.5 bg-navy-800 border border-white/10 rounded-xl shadow-xl overflow-hidden w-36 z-50">
+                {LANGS.map((l) => (
+                  <Link
+                    key={l.code}
+                    href={switchLang(l.code)}
+                    onClick={() => setLangOpen(false)}
+                    className={`flex items-center gap-3 px-4 py-2.5 text-sm transition-colors ${
+                      lang === l.code
+                        ? "bg-gold/20 text-gold-light font-semibold"
+                        : "text-white/80 hover:bg-white/10 hover:text-white"
+                    }`}
+                  >
+                    <span className="text-base leading-none">{l.flag}</span>
+                    {l.label}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Mobile menu button */}
           <button
             className="md:hidden p-1.5 rounded-md hover:bg-white/10 transition-colors"
-            onClick={() => setOpen(!open)}
+            onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Menú"
           >
-            {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
 
       {/* Mobile menu */}
-      {open && (
+      {menuOpen && (
         <div className="md:hidden bg-navy-800 border-t border-white/10">
           <div className="px-4 py-4 space-y-1">
             {navItems.map((item) => (
@@ -109,7 +139,7 @@ export default function Header({ lang, nav }: { lang: string; nav: Nav }) {
                 key={item.href}
                 href={item.href}
                 className="block px-3 py-2.5 text-sm font-medium rounded-lg hover:bg-white/10 hover:text-gold-light transition-all"
-                onClick={() => setOpen(false)}
+                onClick={() => setMenuOpen(false)}
               >
                 {item.label}
               </Link>
@@ -123,15 +153,15 @@ export default function Header({ lang, nav }: { lang: string; nav: Nav }) {
                 <Link
                   key={l.code}
                   href={switchLang(l.code)}
-                  className={`flex-1 text-center py-2 rounded-lg text-sm font-bold transition-all ${
+                  className={`flex-1 text-center py-2.5 rounded-lg text-sm font-medium transition-all ${
                     lang === l.code
-                      ? "bg-gold text-navy-900"
+                      ? "bg-gold text-navy-900 font-bold"
                       : "bg-white/10 text-white hover:bg-white/20"
                   }`}
-                  onClick={() => setOpen(false)}
+                  onClick={() => setMenuOpen(false)}
                 >
-                  {l.short}
-                  <span className="block text-xs font-normal opacity-70">{l.label}</span>
+                  <span className="block text-lg leading-none mb-0.5">{l.flag}</span>
+                  <span className="text-xs opacity-80">{l.label}</span>
                 </Link>
               ))}
             </div>
