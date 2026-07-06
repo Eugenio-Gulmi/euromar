@@ -3,17 +3,23 @@ import { Phone, Mail, MapPin } from "lucide-react";
 import { getDictionary, isValidLang, type Lang } from "@/lib/i18n";
 import ContactForm from "@/components/ContactForm";
 
+const CDN = "https://cdn.jsdelivr.net/gh/Eugenio-Gulmi/euromar@master/public";
+
 const contacts = [
   {
     name: "Hugo Pedeconi",
+    role: { es: "Presidente", en: "President", zh: "总裁" },
     phone: "+54 223 421-7777",
     email: "hpedeconi@euromar.com.ar",
+    photo: "hugo-pedeconi.jpg",
     langs: null,
   },
   {
     name: "Luciano Gulminelli",
+    role: { es: "Export Manager", en: "Export Manager", zh: "出口经理" },
     phone: "+54 223 594-2314",
     email: "lgulminellibarrau@gb-grp.com",
+    photo: "luciano-gulminelli.jpg",
     langs: [
       { flag: "🇦🇷", label: "Español" },
       { flag: "🇬🇧", label: "English" },
@@ -24,6 +30,8 @@ const contacts = [
   },
 ];
 
+type LangKey = "es" | "en" | "zh";
+
 export default async function ContactoPage({
   params,
 }: {
@@ -32,6 +40,7 @@ export default async function ContactoPage({
   const { lang } = await params;
   if (!isValidLang(lang)) notFound();
   const t = await getDictionary(lang as Lang);
+  const l = lang as LangKey;
 
   const formStrings = {
     form_name: t.contact.form_name,
@@ -63,7 +72,7 @@ export default async function ContactoPage({
           </div>
 
           {/* Info */}
-          <div className="space-y-8">
+          <div className="space-y-6">
             {/* Direct contacts */}
             <div>
               <h2 className="text-xl font-bold text-navy-900 mb-5">
@@ -75,31 +84,41 @@ export default async function ContactoPage({
                     key={c.name}
                     className="bg-white rounded-xl p-5 border border-slate-100 shadow-sm"
                   >
-                    <div className="flex items-start justify-between gap-2 mb-3">
-                      <div className="font-semibold text-navy-900">{c.name}</div>
-                      {c.langs && (
-                        <div className="flex items-center gap-1">
-                          {c.langs.map((l) => (
-                            <span key={l.label} title={l.label} className="text-lg leading-none">
-                              {l.flag}
-                            </span>
-                          ))}
-                        </div>
-                      )}
+                    {/* Header: photo + name + role + flags */}
+                    <div className="flex items-center gap-4 mb-4">
+                      <img
+                        src={`${CDN}/images/${c.photo}`}
+                        alt={c.name}
+                        className="w-16 h-16 rounded-full object-cover object-top border-2 border-slate-100 shrink-0"
+                      />
+                      <div className="flex-1 min-w-0">
+                        <div className="font-bold text-navy-900 text-base">{c.name}</div>
+                        <div className="text-sm text-slate-500 mb-1">{c.role[l]}</div>
+                        {c.langs && (
+                          <div className="flex items-center gap-1 flex-wrap">
+                            {c.langs.map((fl) => (
+                              <span key={fl.label} title={fl.label} className="text-base leading-none">
+                                {fl.flag}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                     </div>
-                    <div className="space-y-2 text-sm text-slate-600">
+                    {/* Contact links */}
+                    <div className="space-y-2 text-sm text-slate-600 border-t border-slate-100 pt-4">
                       <a
                         href={`tel:${c.phone.replace(/\s/g, "")}`}
                         className="flex items-center gap-2 hover:text-navy-900 transition-colors"
                       >
-                        <Phone className="w-4 h-4 text-navy-700" />
+                        <Phone className="w-4 h-4 text-navy-700 shrink-0" />
                         {c.phone}
                       </a>
                       <a
                         href={`mailto:${c.email}`}
                         className="flex items-center gap-2 hover:text-navy-900 transition-colors"
                       >
-                        <Mail className="w-4 h-4 text-navy-700" />
+                        <Mail className="w-4 h-4 text-navy-700 shrink-0" />
                         {c.email}
                       </a>
                     </div>
