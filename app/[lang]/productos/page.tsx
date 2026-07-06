@@ -65,6 +65,7 @@ const speciesGroups: {
         zone: { es: "Costa de Buenos Aires", en: "Buenos Aires coast", zh: "布宜诺斯艾利斯海岸" },
         season: "Todo el año / Year-round",
         method: { es: "Red de arrastre", en: "Trawl net", zh: "拖网捕捞" },
+        photo: `${CDN}/images/corvina.jpg`,
       },
       {
         name: "Pescadilla",
@@ -191,6 +192,7 @@ const speciesGroups: {
         zone: { es: "Costa Sur de Sudamérica", en: "Southern South America", zh: "南美洲南部海域" },
         season: "Todo el año / Year-round",
         method: { es: "Pesca con palangre", en: "Longline fishing", zh: "延绳钓捕捞" },
+        photo: `${CDN}/images/merluza-negra.jpg`,
       },
       {
         name: "Salmón Atlántico",
@@ -201,7 +203,7 @@ const speciesGroups: {
         zone: { es: "Sur de Chile", en: "Southern Chile", zh: "智利南部" },
         season: "Todo el año / Year-round",
         method: { es: "Criadero", en: "Fish farm", zh: "水产养殖" },
-        photo: undefined,
+        photo: `${CDN}/images/salmon-atlantico.jpg`,
       },
       {
         name: "Atún",
@@ -212,6 +214,7 @@ const speciesGroups: {
         zone: { es: "Costa de Ecuador", en: "Ecuadorian coast", zh: "厄瓜多尔沿海" },
         season: "Todo el año / Year-round",
         method: { es: "Red de arrastre", en: "Trawl net", zh: "拖网捕捞" },
+        photo: `${CDN}/images/atun.jpg`,
       },
       {
         name: "Trucha",
@@ -222,6 +225,7 @@ const speciesGroups: {
         zone: { es: "Argentina y Chile", en: "Argentina & Chile", zh: "阿根廷与智利" },
         season: "Todo el año / Year-round",
         method: { es: "Criadero", en: "Fish farm", zh: "水产养殖" },
+        photo: `${CDN}/images/trucha.jpg`,
       },
       {
         name: "Mahi-Mahi",
@@ -232,6 +236,7 @@ const speciesGroups: {
         zone: { es: "Centroamérica", en: "Central America", zh: "中美洲" },
         season: "Nov–Mar",
         method: { es: "Red de arrastre de fondo", en: "Bottom trawl", zh: "底拖网" },
+        photo: `${CDN}/images/mahi-mahi.jpg`,
       },
     ],
   },
