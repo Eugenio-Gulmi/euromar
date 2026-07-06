@@ -33,9 +33,9 @@ const team = [
     name: "Luciano Gulminelli",
     photo: `${CDN}/images/luciano-gulminelli.jpg`,
     role: {
-      es: "Export Manager",
-      en: "Export Manager",
-      zh: "出口经理",
+      es: "Director de Exportación y Nuevos Negocios",
+      en: "Export and New Ventures Director",
+      zh: "出口及新业务总监",
     },
     bio: {
       es: "Licenciado en Comercio Internacional, Luciano acumuló años de experiencia viviendo y trabajando en Brasil y en Shanghai, China — dos de los mercados estratégicos clave para la exportación pesquera argentina. En Brasil consolidó relaciones comerciales con importadores y distribuidores de la región; en Shanghai profundizó su conocimiento de las cadenas de distribución asiáticas y la cultura de negocios china. Habla con fluidez español, inglés, mandarín, portugués e italiano, convirtiéndose en el nexo directo de Euromar con compradores de cuatro continentes.",
