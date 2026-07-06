@@ -15,7 +15,7 @@ type LangKey = "es" | "en" | "zh";
 type SiteLang = LangKey | "fr" | "nl" | "ar";
 
 const speciesGroups: {
-  category: Record<LangKey, string>;
+  category: Record<SiteLang, string>;
   icon: typeof Fish;
   color: string;
   species: {
