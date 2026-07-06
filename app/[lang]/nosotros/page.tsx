@@ -47,7 +47,7 @@ export default async function NosotrosPage({
     <div>
       <section className="relative bg-navy-900 text-white py-24 overflow-hidden">
         <img
-          src="/images/hero-muelle.jpg"
+          src="https://cdn.jsdelivr.net/gh/Eugenio-Gulmi/euromar@master/public/images/hero-muelle.jpg"
           alt="Muelle patagónico"
           className="absolute inset-0 w-full h-full object-cover opacity-30"
         />

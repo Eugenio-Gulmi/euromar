@@ -3,11 +3,12 @@ import Link from "next/link";
 import { ArrowRight, Fish, Anchor, Globe, Shield } from "lucide-react";
 import { getDictionary, isValidLang, type Lang } from "@/lib/i18n";
 
+const CDN = "https://cdn.jsdelivr.net/gh/Eugenio-Gulmi/euromar@master/public";
 const productImages = [
-  "/images/fish-merluza.jpg",
-  "/images/langostinos.avif",
-  "/images/seafood-calamar.jpg",
-  "/images/apanados-bastones.jpg",
+  `${CDN}/images/fish-merluza.jpg`,
+  `${CDN}/images/langostinos.avif`,
+  `${CDN}/images/seafood-calamar.jpg`,
+  `${CDN}/images/apanados-bastones.jpg`,
 ];
 
 export default async function HomePage({
@@ -24,7 +25,7 @@ export default async function HomePage({
       {/* Hero — foto de Patagonia o Ushuaia */}
       <section className="relative min-h-[88vh] flex items-center overflow-hidden">
         <img
-          src="/images/hero-patagonia.jpg"
+          src="https://cdn.jsdelivr.net/gh/Eugenio-Gulmi/euromar@master/public/images/hero-patagonia.jpg"
           alt="Patagonia Argentina"
           className="absolute inset-0 w-full h-full object-cover"
         />
