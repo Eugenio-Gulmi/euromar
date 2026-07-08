@@ -473,11 +473,6 @@ export default async function ProductosPage({
                               )}
                             </div>
                           )}
-                          {/* Alt name when photo shows main name */}
-                          {sp.photo && l !== "es" && (
-                            <div className="text-xs text-slate-400 mb-2">{sp.name}</div>
-                          )}
-
                           {/* Description */}
                           <p className="text-sm text-slate-600 leading-relaxed mb-4">
                             {sp.desc[lk]}
