@@ -67,14 +67,10 @@ export default async function ServiciosPage({
       <section className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold text-navy-900 mb-4">
-            {lang === "es" && "Servicio integral de exportación"}
-            {lang === "en" && "Full export service"}
-            {lang === "zh" && "全程出口服务"}
+            {lang === "es" ? "Servicio integral de exportación" : lang === "zh" ? "全程出口服务" : lang === "ar" ? "خدمة تصدير متكاملة" : lang === "fr" ? "Service d'exportation complet" : lang === "nl" ? "Volledig exportpakket" : "Full export service"}
           </h2>
           <p className="text-slate-500 leading-relaxed">
-            {lang === "es" && "Cada servicio puede contratarse de forma independiente o como parte de un paquete completo. Adaptamos nuestra operación a las necesidades de cada cliente y mercado."}
-            {lang === "en" && "Each service can be contracted independently or as part of a complete package. We adapt our operation to the needs of each client and market."}
-            {lang === "zh" && "每项服务可单独订购，也可作为完整套餐的一部分。我们根据每位客户和市场的需求调整我们的运营方式。"}
+            {lang === "es" ? "Cada servicio puede contratarse de forma independiente o como parte de un paquete completo. Adaptamos nuestra operación a las necesidades de cada cliente y mercado." : lang === "zh" ? "每项服务可单独订购，也可作为完整套餐的一部分。我们根据每位客户和市场的需求调整我们的运营方式。" : lang === "ar" ? "يمكن الاستعانة بكل خدمة بشكل مستقل أو ضمن حزمة متكاملة. نكيّف عملياتنا وفقاً لاحتياجات كل عميل وسوق." : lang === "fr" ? "Chaque service peut être contracté indépendamment ou dans le cadre d'un forfait complet. Nous adaptons notre opération aux besoins de chaque client et marché." : lang === "nl" ? "Elke dienst kan onafhankelijk of als onderdeel van een volledig pakket worden afgenomen. Wij passen onze werkwijze aan op de behoeften van elke klant en markt." : "Each service can be contracted independently or as part of a complete package. We adapt our operation to the needs of each client and market."}
           </p>
         </div>
       </section>

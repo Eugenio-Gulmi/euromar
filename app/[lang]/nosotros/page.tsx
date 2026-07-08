@@ -95,7 +95,7 @@ export default async function NosotrosPage({
   const { lang } = await params;
   if (!isValidLang(lang)) notFound();
   const t = await getDictionary(lang as Lang);
-  const l = lang as LangKey;
+  const lk: LangKey = (lang === "es" || lang === "en" || lang === "zh") ? lang as LangKey : "en";
 
   return (
     <div>
@@ -108,7 +108,7 @@ export default async function NosotrosPage({
         <div className="relative max-w-6xl mx-auto px-4">
           <p className="text-gold-light text-sm font-semibold uppercase tracking-widest mb-3">
             1975 →{" "}
-            {lang === "es" ? "hoy" : lang === "en" ? "today" : "至今"}
+            {lang === "es" ? "hoy" : lang === "zh" ? "至今" : lang === "ar" ? "اليوم" : "today"}
           </p>
           <h1 className="text-4xl md:text-5xl font-bold mb-3">{t.about.title}</h1>
           <p className="text-slate-300 max-w-xl">{t.about.subtitle}</p>
@@ -127,7 +127,7 @@ export default async function NosotrosPage({
       <section className="py-16 bg-slate-50">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-2xl font-bold text-navy-900 mb-10 text-center">
-            {l === "es" ? "Nuestro Equipo" : l === "en" ? "Our Team" : "我们的团队"}
+            {lk === "es" ? "Nuestro Equipo" : lk === "zh" ? "我们的团队" : "Our Team"}
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {team.map((member) => (
@@ -141,7 +141,7 @@ export default async function NosotrosPage({
                   />
                   <div className="flex-1 min-w-0">
                     <div className="font-bold text-navy-900 text-lg">{member.name}</div>
-                    <div className="text-sm text-gold-light font-semibold mb-2">{member.role[l]}</div>
+                    <div className="text-sm text-gold-light font-semibold mb-2">{member.role[lk]}</div>
                     {member.langs && (
                       <div className="flex items-center gap-1.5 flex-wrap">
                         {member.langs.map((fl) => (
@@ -155,10 +155,10 @@ export default async function NosotrosPage({
                 </div>
                 {/* Bio */}
                 <div className="p-6">
-                  <p className="text-slate-600 text-sm leading-relaxed mb-4">{member.bio[l]}</p>
+                  <p className="text-slate-600 text-sm leading-relaxed mb-4">{member.bio[lk]}</p>
                   <div className="inline-flex items-center gap-2 bg-navy-900/5 border border-navy-900/10 rounded-lg px-3 py-1.5 text-xs text-navy-700 font-medium">
                     <span className="w-1.5 h-1.5 rounded-full bg-gold-light shrink-0" />
-                    {member.detail[l]}
+                    {member.detail[lk]}
                   </div>
                 </div>
               </div>
@@ -205,7 +205,7 @@ export default async function NosotrosPage({
                 <div className="text-sm text-slate-400 mb-2">{p.country}</div>
                 <h3 className="font-bold text-lg mb-3">{p.name}</h3>
                 <p className="text-slate-400 text-sm leading-relaxed">
-                  {p.desc[lang as "es" | "en" | "zh"]}
+                  {p.desc[lk]}
                 </p>
               </div>
             ))}

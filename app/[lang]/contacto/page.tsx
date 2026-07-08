@@ -16,7 +16,7 @@ const contacts = [
   },
   {
     name: "Luciano Gulminelli",
-    role: { es: "Export Manager", en: "Export Manager", zh: "出口经理" },
+    role: { es: "Director de Exportación y Nuevos Negocios", en: "Export and New Ventures Director", zh: "出口及新业务总监" },
     phone: "+54 223 594-2314",
     email: "lgulminellibarrau@gb-grp.com",
     photo: "luciano-gulminelli.jpg",
@@ -40,7 +40,7 @@ export default async function ContactoPage({
   const { lang } = await params;
   if (!isValidLang(lang)) notFound();
   const t = await getDictionary(lang as Lang);
-  const l = lang as LangKey;
+  const lk: LangKey = (lang === "es" || lang === "en" || lang === "zh") ? lang as LangKey : "en";
 
   const formStrings = {
     form_name: t.contact.form_name,
@@ -93,7 +93,7 @@ export default async function ContactoPage({
                       />
                       <div className="flex-1 min-w-0">
                         <div className="font-bold text-navy-900 text-base">{c.name}</div>
-                        <div className="text-sm text-slate-500 mb-1">{c.role[l]}</div>
+                        <div className="text-sm text-slate-500 mb-1">{c.role[lk]}</div>
                         {c.langs && (
                           <div className="flex items-center gap-1 flex-wrap">
                             {c.langs.map((fl) => (
