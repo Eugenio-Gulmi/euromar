@@ -44,7 +44,7 @@ const speciesGroups: {
         zone: { es: "Costas de Argentina", en: "Argentine coast", zh: "阿根廷沿海" },
         season: "Todo el año / Year-round",
         method: { es: "Red de arrastre", en: "Trawl net", zh: "拖网捕捞" },
-        photo: `${CDN}/images/productos-congelados-04-merluza-1-960x640.jpg`,
+        photo: `${CDN}/images/merluza.jpg`,
       },
       {
         name: "Abadejo",
@@ -55,7 +55,7 @@ const speciesGroups: {
         zone: { es: "Sur de Argentina", en: "Southern Argentina", zh: "阿根廷南部" },
         season: "Ago–Dic / Aug–Dec",
         method: { es: "Red de arrastre", en: "Trawl net", zh: "拖网捕捞" },
-        photo: `${CDN}/images/productos-congelados-05-abadejo-1-960x640.jpg`,
+        photo: `${CDN}/images/abadejo.jpg`,
       },
       {
         name: "Corvina",
