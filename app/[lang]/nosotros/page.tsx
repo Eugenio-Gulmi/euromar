@@ -95,7 +95,7 @@ export default async function NosotrosPage({
   const { lang } = await params;
   if (!isValidLang(lang)) notFound();
   const t = await getDictionary(lang as Lang);
-  const lk: LangKey = (lang === "es" || lang === "en" || lang === "zh") ? lang as LangKey : "en";
+  const lk: LangKey = lang === "es" ? "es" : lang === "zh" ? "zh" : lang === "pt" ? "es" : "en";
 
   return (
     <div>
@@ -108,7 +108,7 @@ export default async function NosotrosPage({
         <div className="relative max-w-6xl mx-auto px-4">
           <p className="text-gold-light text-sm font-semibold uppercase tracking-widest mb-3">
             1975 →{" "}
-            {lang === "es" ? "hoy" : lang === "zh" ? "至今" : lang === "ar" ? "اليوم" : "today"}
+            {lang === "es" || lang === "pt" ? (lang === "pt" ? "hoje" : "hoy") : lang === "zh" ? "至今" : lang === "ar" ? "اليوم" : "today"}
           </p>
           <h1 className="text-4xl md:text-5xl font-bold mb-3">{t.about.title}</h1>
           <p className="text-slate-300 max-w-xl">{t.about.subtitle}</p>

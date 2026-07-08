@@ -178,10 +178,10 @@ export default async function HomePage({
       <section className="py-20 bg-white">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-navy-900 mb-4">
-            {lang === "es" ? "¿Listo para trabajar juntos?" : lang === "zh" ? "准备好合作了吗？" : lang === "ar" ? "هل أنت مستعد للعمل معاً؟" : lang === "fr" ? "Prêt à travailler ensemble ?" : lang === "nl" ? "Klaar om samen te werken?" : "Ready to work together?"}
+            {lang === "es" ? "¿Listo para trabajar juntos?" : lang === "pt" ? "Pronto para trabalharmos juntos?" : lang === "zh" ? "准备好合作了吗？" : lang === "ar" ? "هل أنت مستعد للعمل معاً؟" : lang === "fr" ? "Prêt à travailler ensemble ?" : lang === "nl" ? "Klaar om samen te werken?" : "Ready to work together?"}
           </h2>
           <p className="text-slate-500 mb-8">
-            {lang === "es" ? "Contáctanos y te asesoramos sin compromiso sobre nuestros productos y servicios." : lang === "zh" ? "联系我们，我们将无偿为您提供产品和服务咨询。" : lang === "ar" ? "تواصل معنا وسنقدم لك المشورة دون التزام بشأن منتجاتنا وخدماتنا." : lang === "fr" ? "Contactez-nous et nous vous conseillerons sans engagement sur nos produits et services." : lang === "nl" ? "Neem contact op en wij adviseren u vrijblijvend over onze producten en diensten." : "Contact us and we'll advise you with no commitment about our products and services."}
+            {lang === "es" ? "Contáctanos y te asesoramos sin compromiso sobre nuestros productos y servicios." : lang === "pt" ? "Entre em contato e iremos aconselhá-lo sem compromisso sobre nossos produtos e serviços." : lang === "zh" ? "联系我们，我们将无偿为您提供产品和服务咨询。" : lang === "ar" ? "تواصل معنا وسنقدم لك المشورة دون التزام بشأن منتجاتنا وخدماتنا." : lang === "fr" ? "Contactez-nous et nous vous conseillerons sans engagement sur nos produits et services." : lang === "nl" ? "Neem contact op en wij adviseren u vrijblijvend over onze producten en diensten." : "Contact us and we'll advise you with no commitment about our products and services."}
           </p>
           <Link
             href={`/${lang}/contacto`}

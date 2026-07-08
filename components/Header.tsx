@@ -8,6 +8,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 const LANGS = [
   { code: "es", label: "Español",    flag: "🇦🇷" },
   { code: "en", label: "English",    flag: "🇬🇧" },
+  { code: "pt", label: "Português",  flag: "🇧🇷" },
   { code: "fr", label: "Français",   flag: "🇫🇷" },
   { code: "nl", label: "Nederlands", flag: "🇳🇱" },
   { code: "ar", label: "العربية",    flag: "🇦🇪" },
@@ -150,12 +151,12 @@ export default function Header({ lang, nav }: { lang: string; nav: Nav }) {
           {/* Language picker in mobile menu */}
           <div className="px-4 pb-4">
             <p className="text-xs text-white/40 uppercase tracking-widest mb-2 px-3">Idioma / Language</p>
-            <div className="flex gap-2">
+            <div className="grid grid-cols-4 gap-2">
               {LANGS.map((l) => (
                 <Link
                   key={l.code}
                   href={switchLang(l.code)}
-                  className={`flex-1 text-center py-2.5 rounded-lg text-sm font-medium transition-all ${
+                  className={`text-center py-2.5 rounded-lg text-sm font-medium transition-all ${
                     lang === l.code
                       ? "bg-gold text-navy-900 font-bold"
                       : "bg-white/10 text-white hover:bg-white/20"

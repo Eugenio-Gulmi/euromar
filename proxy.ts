@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const LANGS = ["es", "en", "zh", "fr", "nl", "ar"];
+const LANGS = ["es", "en", "zh", "fr", "nl", "ar", "pt"];
 const DEFAULT_LANG = "es";
 
 export function proxy(request: NextRequest) {

@@ -12,7 +12,7 @@ const categoryPhotos = [
 ];
 
 type LangKey = "es" | "en" | "zh";
-type SiteLang = LangKey | "fr" | "nl" | "ar";
+type SiteLang = LangKey | "fr" | "nl" | "ar" | "pt";
 
 const speciesGroups: {
   category: Record<SiteLang, string>;
@@ -31,7 +31,7 @@ const speciesGroups: {
   }[];
 }[] = [
   {
-    category: { es: "Pescados Blancos", en: "White Fish", zh: "白鱼类", fr: "Poissons Blancs", nl: "Witte Vis", ar: "الأسماك البيضاء" },
+    category: { es: "Pescados Blancos", en: "White Fish", zh: "白鱼类", fr: "Poissons Blancs", nl: "Witte Vis", ar: "الأسماك البيضاء", pt: "Peixes Brancos" },
     icon: Fish,
     color: "bg-navy-900",
     species: [
@@ -158,7 +158,7 @@ const speciesGroups: {
     ],
   },
   {
-    category: { es: "Mariscos, Crustáceos y Moluscos", en: "Shellfish, Crustaceans & Mollusks", zh: "贝类、甲壳类与软体类", fr: "Fruits de Mer, Crustacés et Mollusques", nl: "Zeevruchten, Schaaldieren en Weekdieren", ar: "المأكولات البحرية والقشريات والرخويات" },
+    category: { es: "Mariscos, Crustáceos y Moluscos", en: "Shellfish, Crustaceans & Mollusks", zh: "贝类、甲壳类与软体类", fr: "Fruits de Mer, Crustacés et Mollusques", nl: "Zeevruchten, Schaaldieren en Weekdieren", ar: "المأكولات البحرية والقشريات والرخويات", pt: "Frutos do Mar, Crustáceos e Moluscos" },
     icon: Shell,
     color: "bg-teal-700",
     species: [
@@ -187,7 +187,7 @@ const speciesGroups: {
     ],
   },
   {
-    category: { es: "Especies Premium", en: "Premium Species", zh: "优质鱼类", fr: "Espèces Premium", nl: "Premium Soorten", ar: "الأنواع المميزة" },
+    category: { es: "Especies Premium", en: "Premium Species", zh: "优质鱼类", fr: "Espèces Premium", nl: "Premium Soorten", ar: "الأنواع المميزة", pt: "Espécies Premium" },
     icon: Anchor,
     color: "bg-navy-700",
     species: [
@@ -249,7 +249,7 @@ const speciesGroups: {
     ],
   },
   {
-    category: { es: "Productos Apanados", en: "Breaded Products", zh: "裹粉制品", fr: "Produits Panés", nl: "Gepaneerde Producten", ar: "المنتجات المغطاة" },
+    category: { es: "Productos Apanados", en: "Breaded Products", zh: "裹粉制品", fr: "Produits Panés", nl: "Gepaneerde Producten", ar: "المنتجات المغطاة", pt: "Produtos Empanados" },
     icon: UtensilsCrossed,
     color: "bg-amber-700",
     species: [
@@ -303,15 +303,15 @@ const speciesGroups: {
 
 const captureLabel: Record<SiteLang, string> = {
   es: "Zona de captura", en: "Capture zone", zh: "捕获区域",
-  fr: "Zone de capture", nl: "Vangstgebied", ar: "منطقة الصيد",
+  fr: "Zone de capture", nl: "Vangstgebied", ar: "منطقة الصيد", pt: "Zona de captura",
 };
 const seasonLabel: Record<SiteLang, string> = {
   es: "Temporada", en: "Season", zh: "季节",
-  fr: "Saison", nl: "Seizoen", ar: "الموسم",
+  fr: "Saison", nl: "Seizoen", ar: "الموسم", pt: "Temporada",
 };
 const methodLabel: Record<SiteLang, string> = {
   es: "Método", en: "Method", zh: "方法",
-  fr: "Méthode", nl: "Methode", ar: "الطريقة",
+  fr: "Méthode", nl: "Methode", ar: "الطريقة", pt: "Método",
 };
 const catalogTitle: Record<SiteLang, string> = {
   es: "Catálogo Completo de Especies",
@@ -320,6 +320,7 @@ const catalogTitle: Record<SiteLang, string> = {
   fr: "Catalogue Complet des Espèces",
   nl: "Volledig Soortenboekje",
   ar: "كتالوج الأنواع الكامل",
+  pt: "Catálogo Completo de Espécies",
 };
 const catalogSub: Record<SiteLang, string> = {
   es: "Trabajamos con más de 15 especies del Atlántico Sur y el Pacífico. Todos los productos se adaptan a las especificaciones del cliente.",
@@ -328,6 +329,7 @@ const catalogSub: Record<SiteLang, string> = {
   fr: "Nous travaillons avec plus de 15 espèces de l'Atlantique Sud et du Pacifique. Tous les produits sont adaptés aux spécifications du client.",
   nl: "We werken met meer dan 15 soorten uit de Zuidelijke Atlantische Oceaan en de Stille Oceaan. Alle producten worden aangepast aan klantenspecificaties.",
   ar: "نعمل مع أكثر من 15 نوعًا من جنوب الأطلسي والمحيط الهادئ. تُكيَّف جميع المنتجات وفق مواصفات العميل.",
+  pt: "Trabalhamos com mais de 15 espécies do Atlântico Sul e do Pacífico. Todos os produtos são adaptados às especificações do cliente.",
 };
 const noteText: Record<SiteLang, string> = {
   es: "* Las formas de packaging no son excluyentes. Todo producto puede adaptarse a las necesidades del cliente en cuanto a presentación, calibre y certificaciones.",
@@ -336,6 +338,7 @@ const noteText: Record<SiteLang, string> = {
   fr: "* Les formats d'emballage ne sont pas exclusifs. Chaque produit peut être adapté aux besoins du client en termes de présentation, calibre et certifications.",
   nl: "* Verpakkingsformaten zijn niet exclusief. Elk product kan worden aangepast aan de behoeften van de klant wat betreft presentatie, maat en certificeringen.",
   ar: "* أشكال التغليف غير حصرية. يمكن تكييف كل منتج وفق احتياجات العميل من حيث العرض والحجم والشهادات.",
+  pt: "* Os formatos de embalagem não são exclusivos. Todo produto pode ser adaptado às necessidades do cliente em termos de apresentação, tamanho e certificações.",
 };
 
 export default async function ProductosPage({
@@ -347,7 +350,7 @@ export default async function ProductosPage({
   if (!isValidLang(lang)) notFound();
   const t = await getDictionary(lang as Lang);
   const l = lang as SiteLang;
-  const lk: LangKey = (l === "es" || l === "en" || l === "zh") ? l : "en";
+  const lk: LangKey = (l === "es" || l === "en" || l === "zh") ? l : l === "pt" ? "es" : "en";
 
   return (
     <div>

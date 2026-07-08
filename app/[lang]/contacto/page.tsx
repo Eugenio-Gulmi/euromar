@@ -40,7 +40,7 @@ export default async function ContactoPage({
   const { lang } = await params;
   if (!isValidLang(lang)) notFound();
   const t = await getDictionary(lang as Lang);
-  const lk: LangKey = (lang === "es" || lang === "en" || lang === "zh") ? lang as LangKey : "en";
+  const lk: LangKey = lang === "es" ? "es" : lang === "zh" ? "zh" : lang === "pt" ? "es" : "en";
 
   const formStrings = {
     form_name: t.contact.form_name,
