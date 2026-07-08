@@ -8,7 +8,7 @@ const CDN = "";
 const contacts = [
   {
     name: "Hugo Pedeconi",
-    role: { es: "Presidente", en: "President", zh: "总裁" },
+    role: { es: "Presidente", en: "President", zh: "总裁", pt: "Presidente" },
     phone: "+54 223 421-7777",
     email: "hpedeconi@euromar.com.ar",
     photo: "hugo-pedeconi.jpg",
@@ -16,7 +16,7 @@ const contacts = [
   },
   {
     name: "Luciano Gulminelli",
-    role: { es: "Director de Exportación y Nuevos Negocios", en: "Export and New Ventures Director", zh: "出口及新业务总监" },
+    role: { es: "Director de Exportación y Nuevos Negocios", en: "Export and New Ventures Director", zh: "出口及新业务总监", pt: "Diretor de Exportação e Novos Negócios" },
     phone: "+54 223 594-2314",
     email: "lgulminellibarrau@gb-grp.com",
     photo: "luciano-gulminelli.jpg",
@@ -31,6 +31,7 @@ const contacts = [
 ];
 
 type LangKey = "es" | "en" | "zh";
+type ContactLang = LangKey | "pt";
 
 export default async function ContactoPage({
   params,
@@ -40,7 +41,7 @@ export default async function ContactoPage({
   const { lang } = await params;
   if (!isValidLang(lang)) notFound();
   const t = await getDictionary(lang as Lang);
-  const lk: LangKey = lang === "es" ? "es" : lang === "zh" ? "zh" : lang === "pt" ? "es" : "en";
+  const lk: ContactLang = lang === "es" ? "es" : lang === "zh" ? "zh" : lang === "pt" ? "pt" : "en";
 
   const formStrings = {
     form_name: t.contact.form_name,

@@ -7,6 +7,7 @@ const CDN = "";
 const valueIcons = [Shield, Globe, CheckCircle, Handshake];
 
 type LangKey = "es" | "en" | "zh";
+type TeamLang = LangKey | "pt";
 
 const team = [
   {
@@ -16,17 +17,20 @@ const team = [
       es: "Presidente",
       en: "President",
       zh: "总裁",
+      pt: "Presidente",
     },
     bio: {
       es: "Más de 43 años al frente de Euromar S.A. Licenciado en Comercio Exterior, Hugo es uno de los referentes históricos del sector pesquero argentino. Especialista en intermediación y bróker de pesca, con foco principal en las pesquerías del Atlántico Sur. Su trayectoria abarca desde la gestión operativa en planta hasta la negociación directa con armadores, frigoríficos y compradores internacionales.",
       en: "Over 43 years leading Euromar S.A. With a degree in Foreign Trade, Hugo is one of Argentina's most experienced figures in the fishing industry. A specialist in fishing brokerage and intermediation, with a primary focus on South Atlantic fisheries. His career spans from plant operations management to direct negotiation with shipowners, cold-storage plants, and international buyers.",
       zh: "在欧罗马公司任职超过43年。毕业于对外贸易专业，Hugo是阿根廷渔业领域最具经验的人士之一。专注于南大西洋渔业的渔业经纪与中介业务，拥有从工厂运营管理到直接与船东、冷藏工厂及国际买家谈判的丰富经历。",
+      pt: "Mais de 43 anos à frente da Euromar S.A. Formado em Comércio Exterior, Hugo é uma das referências históricas do setor pesqueiro argentino. Especialista em intermediação e corretagem de pesca, com foco principal nas pescarias do Atlântico Sul. Sua trajetória abrange desde a gestão operacional em planta até a negociação direta com armadores, frigoríficos e compradores internacionais.",
     },
     langs: null,
     detail: {
       es: "Especialista en Atlántico Sur · Desde 1983",
       en: "South Atlantic Expert · Since 1983",
       zh: "南大西洋专家 · 自1983年",
+      pt: "Especialista no Atlântico Sul · Desde 1983",
     },
   },
   {
@@ -36,11 +40,13 @@ const team = [
       es: "Director de Exportación y Nuevos Negocios",
       en: "Export and New Ventures Director",
       zh: "出口及新业务总监",
+      pt: "Diretor de Exportação e Novos Negócios",
     },
     bio: {
       es: "Licenciado en Comercio Internacional, Luciano acumuló años de experiencia viviendo y trabajando en Brasil y en Shanghai, China — dos de los mercados estratégicos clave para la exportación pesquera argentina. En Brasil consolidó relaciones comerciales con importadores y distribuidores de la región; en Shanghai profundizó su conocimiento de las cadenas de distribución asiáticas y la cultura de negocios china. Habla con fluidez español, inglés, mandarín, portugués e italiano, convirtiéndose en el nexo directo de Euromar con compradores de cuatro continentes.",
       en: "With a degree in International Trade, Luciano built years of experience living and working in both Brazil and Shanghai, China — two of the most strategic markets for Argentine seafood exports. In Brazil he established strong commercial relationships with regional importers and distributors; in Shanghai he developed an in-depth understanding of Asian distribution chains and Chinese business culture. He speaks Spanish, English, Mandarin, Portuguese and Italian fluently, making him Euromar's direct link to buyers across four continents.",
       zh: "Luciano拥有国际贸易学位，曾在巴西和中国上海两地生活和工作多年——这两个地区都是阿根廷水产出口的战略核心市场。在巴西，他与当地进口商和分销商建立了深厚的商业关系；在上海，他深入掌握了亚洲分销链和中国商业文化。他流利掌握西班牙语、英语、普通话、葡萄牙语和意大利语，是欧罗马公司连接四大洲买家的直接纽带。",
+      pt: "Formado em Comércio Internacional, Luciano acumulou anos de experiência vivendo e trabalhando no Brasil e em Xangai, China — dois dos mercados estratégicos mais importantes para a exportação pesqueira argentina. No Brasil consolidou relações comerciais com importadores e distribuidores da região; em Xangai aprofundou seu conhecimento das cadeias de distribuição asiáticas e da cultura de negócios chinesa. Fala com fluência espanhol, inglês, mandarim, português e italiano, tornando-se o elo direto da Euromar com compradores de quatro continentes.",
     },
     langs: [
       { flag: "🇦🇷", label: "Español" },
@@ -53,6 +59,7 @@ const team = [
       es: "Shanghai · Brasil · 5 idiomas",
       en: "Shanghai · Brazil · 5 languages",
       zh: "上海 · 巴西 · 5种语言",
+      pt: "Xangai · Brasil · 5 idiomas",
     },
   },
 ];
@@ -65,6 +72,7 @@ const partners = [
       es: "Representación exclusiva en el mercado norteamericano. Gestionamos compras desde Argentina, Chile, Uruguay, Ecuador, Brasil y Perú.",
       en: "Exclusive representation in the North American market. We manage purchases from Argentina, Chile, Uruguay, Ecuador, Brazil and Peru.",
       zh: "北美市场的独家代理。我们管理来自阿根廷、智利、乌拉圭、厄瓜多尔、巴西和秘鲁的采购。",
+      pt: "Representação exclusiva no mercado norte-americano. Gerenciamos compras da Argentina, Chile, Uruguai, Equador, Brasil e Peru.",
     },
   },
   {
@@ -74,6 +82,7 @@ const partners = [
       es: "Socio estratégico para el mercado europeo, con presencia en Francia y distribución en toda Europa.",
       en: "Strategic partner for the European market, with presence in France and distribution across Europe.",
       zh: "欧洲市场的战略合作伙伴，在法国设有业务并覆盖整个欧洲的分销网络。",
+      pt: "Parceiro estratégico para o mercado europeu, com presença na França e distribuição em toda a Europa.",
     },
   },
   {
@@ -83,6 +92,7 @@ const partners = [
       es: "Alianza para la comercialización de pescados y harinas en el mercado brasileño.",
       en: "Alliance for the commercialization of fish and fish meal in the Brazilian market.",
       zh: "在巴西市场销售鱼类和鱼粉的合作联盟。",
+      pt: "Aliança para a comercialização de peixes e farinhas no mercado brasileiro.",
     },
   },
 ];
@@ -95,7 +105,7 @@ export default async function NosotrosPage({
   const { lang } = await params;
   if (!isValidLang(lang)) notFound();
   const t = await getDictionary(lang as Lang);
-  const lk: LangKey = lang === "es" ? "es" : lang === "zh" ? "zh" : lang === "pt" ? "es" : "en";
+  const lk: TeamLang = lang === "es" ? "es" : lang === "zh" ? "zh" : lang === "pt" ? "pt" : "en";
 
   return (
     <div>
