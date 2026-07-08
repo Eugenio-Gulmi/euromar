@@ -83,7 +83,7 @@ const speciesGroups: {
         name: "Hoki",
         nameEn: "Hoki",
         nameZh: "长尾鳕",
-        scientific: "Macruronus dactylopterus lahilllei",
+        scientific: "Macruronus magellanicus",
         desc: { es: "Carne suave, agradable sabor.", en: "Soft flesh, pleasant flavor.", zh: "肉质柔软，风味怡人。" },
         zone: { es: "Costa Sur de Argentina", en: "Southern Argentine coast", zh: "阿根廷南部沿海" },
         season: "Jun–Sep (peak) / Todo el año",
