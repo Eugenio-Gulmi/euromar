@@ -358,7 +358,7 @@ export default async function ProductosPage({
       {/* Page header */}
       <section className="relative bg-navy-900 text-white py-24 overflow-hidden">
         <img
-          src="/images/hero-muelle.jpg"
+          src="/images/hero-muelle-grok.jpg"
           alt="Puerto Mar del Plata"
           className="absolute inset-0 w-full h-full object-cover opacity-30"
         />
