@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { getDictionary, isValidLang, type Lang } from "@/lib/i18n";
-import ContactForm from "@/components/ContactForm";
 
 const CDN = "";
 
@@ -43,16 +42,6 @@ export default async function ContactoPage({
   const t = await getDictionary(lang as Lang);
   const lk: ContactLang = lang === "es" ? "es" : lang === "zh" ? "zh" : lang === "pt" ? "pt" : "en";
 
-  const formStrings = {
-    form_name: t.contact.form_name,
-    form_email: t.contact.form_email,
-    form_message: t.contact.form_message,
-    form_submit: t.contact.form_submit,
-    form_sending: t.contact.form_sending,
-    form_success: t.contact.form_success,
-    form_error: t.contact.form_error,
-  };
-
   return (
     <div>
       <section className="bg-navy-900 text-white py-16">
@@ -64,12 +53,19 @@ export default async function ContactoPage({
 
       <section className="py-16 bg-slate-50">
         <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Form */}
-          <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
-            <h2 className="text-xl font-bold text-navy-900 mb-6">
-              {t.contact.form_title}
-            </h2>
-            <ContactForm strings={formStrings} />
+          {/* Google Form embed */}
+          <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100">
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLSfU2rwS0KxiEBVa6AEqKbFHd7jla0n0Z6874cYsocp_CebyGQ/viewform?embedded=true"
+              width="100%"
+              height="620"
+              frameBorder="0"
+              marginHeight={0}
+              marginWidth={0}
+              title={t.contact.form_title}
+            >
+              Loading…
+            </iframe>
           </div>
 
           {/* Info */}

@@ -110,6 +110,7 @@ const speciesGroups: {
         zone: { es: "Norte de Argentina y Sur de Brasil", en: "Northern Argentina & Southern Brazil", zh: "阿根廷北部与巴西南部" },
         season: "Oct–Feb",
         method: { es: "Red de arrastre de fondo", en: "Bottom trawl", zh: "底拖网" },
+        photo: `${CDN}/images/pez-palo.jpg`,
       },
       {
         name: "Raya",
