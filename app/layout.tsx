@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html className={geist.variable}>
       <body className="min-h-screen flex flex-col antialiased">{children}</body>
+      <GoogleAnalytics gaId="G-GBT4HYZLZD" />
     </html>
   );
 }
