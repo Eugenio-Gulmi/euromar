@@ -6,7 +6,7 @@ import { getDictionary, isValidLang, type Lang } from "@/lib/i18n";
 const CDN = "";
 const productImages = [
   `${CDN}/images/fish-merluza.jpg`,
-  `${CDN}/images/langostinos.avif`,
+  `${CDN}/images/langostinos-inicio.jpg`,
   `${CDN}/images/harina-pescado.jpg`,
   `${CDN}/images/apanados-bastones.jpg`,
 ];
