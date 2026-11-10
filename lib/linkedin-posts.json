@@ -6,7 +6,8 @@
     "event": "CIIE 2026 · Shanghai",
     "text": "We're heading to Shanghai for CIIE 2026. Euromar S.A is joining Xibarita at their booth during the China International Import Expo, bringing Argentine wild red shrimp, squid, hake and marine ingredients — wild-caught and frozen at source, as we've been doing since 1975.",
     "url": "https://www.linkedin.com/feed/update/urn:li:share:7520846869929959424/",
-    "image": null
+    "image": "/images/linkedin/7520846869929959424.jpg",
+    "imagePos": "top"
   },
   {
     "id": "urn:li:share:7520235389081776128",
@@ -15,7 +16,8 @@
     "event": "Seafood Show Latin America · São Paulo",
     "text": "Esta semana Euromar S.A participó de Seafood Show Latin America en São Paulo. Fue un gusto reencontrarnos con clientes y amigos en el mayor mercado de seafood de Latinoamérica.",
     "url": "https://www.linkedin.com/feed/update/urn:li:share:7520235389081776128/",
-    "image": null
+    "image": "/images/linkedin/7520235389081776128.jpg",
+    "imagePos": "center 50%"
   },
   {
     "id": "urn:li:ugcPost:7500141036808073216",
@@ -24,7 +26,8 @@
     "event": "World Seafood Shanghai",
     "text": "Back from World Seafood Shanghai. Three days of meetings with importers, distributors and processors, and one clear takeaway: there is real appetite in China for South American seafood, and still a lot of room to grow.",
     "url": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7500141036808073216/",
-    "image": null
+    "image": "/images/linkedin/7500141036808073216.jpg",
+    "imagePos": "70% center"
   },
   {
     "id": "urn:li:share:7454673917958533120",
@@ -33,6 +36,7 @@
     "event": "Seafood Expo Global · Barcelona",
     "text": "Three days at Seafood Expo Global in Barcelona. Euromar is a family company with a long history in the Argentine fishing business — the kind of place where the relationships go back decades.",
     "url": "https://www.linkedin.com/feed/update/urn:li:share:7454673917958533120/",
-    "image": null
+    "image": "/images/linkedin/7454673917958533120.jpg",
+    "imagePos": "center 60%"
   }
 ]

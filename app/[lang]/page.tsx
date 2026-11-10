@@ -193,19 +193,24 @@ export default async function HomePage({
                 rel="noopener noreferrer"
                 className="group flex flex-col bg-white border border-slate-200 rounded-xl overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all"
               >
-                {p.image ? (
+                {p.image && (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={p.image} alt={p.event} loading="lazy" className="w-full aspect-[16/10] object-cover" />
-                ) : (
-                  <div className="bg-navy-900 px-5 py-6">
-                    <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-gold">
-                      {new Date(p.date + "T12:00:00Z").toLocaleDateString(lang, { month: "long", year: "numeric" })}
-                    </span>
-                    <p className="text-white font-bold text-lg leading-snug mt-1">{p.event}</p>
-                  </div>
+                  <img
+                    src={p.image}
+                    alt={`${p.author} — ${p.event}`}
+                    loading="lazy"
+                    className="w-full aspect-[4/3] object-cover"
+                    style={{ objectPosition: p.imagePos ?? "center" }}
+                  />
                 )}
+                <div className="bg-navy-900 px-5 py-4">
+                  <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-gold">
+                    {new Date(p.date + "T12:00:00Z").toLocaleDateString(lang, { month: "long", year: "numeric" })}
+                  </span>
+                  <p className="text-white font-bold leading-snug mt-1">{p.event}</p>
+                </div>
                 <div className="flex flex-col flex-1 p-5">
-                  <p className="text-sm text-slate-600 leading-relaxed line-clamp-5" dir="auto">{p.text}</p>
+                  <p className="text-sm text-slate-600 leading-relaxed line-clamp-4" dir="auto">{p.text}</p>
                   <div className="mt-auto pt-4 flex items-center justify-between text-xs">
                     <span className="font-semibold text-navy-900">{p.author}</span>
                     <span className="inline-flex items-center gap-1 text-gold font-semibold group-hover:gap-2 transition-all">
