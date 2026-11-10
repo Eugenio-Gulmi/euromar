@@ -174,6 +174,43 @@ export default async function HomePage({
         </div>
       </section>
 
+      {/* LinkedIn: ferias y novedades */}
+      <section className="py-20 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <span className="text-xs font-semibold tracking-[0.2em] uppercase text-gold">LinkedIn</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-navy-900 mt-2">
+              {({ es: "Ferias y novedades", pt: "Feiras e novidades", zh: "展会与动态", ar: "المعارض والأخبار", fr: "Salons et actualités", nl: "Beurzen en nieuws" } as Record<string, string>)[lang] ?? "Trade shows & news"}
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center">
+            {[
+              { urn: "urn:li:share:7520846869929959424", title: "Euromar at CIIE 2026, Shanghai" },
+              { urn: "urn:li:share:7520235389081776128", title: "Euromar at Seafood Show Latin America, São Paulo" },
+            ].map((p) => (
+              <iframe
+                key={p.urn}
+                src={`https://www.linkedin.com/embed/feed/update/${p.urn}`}
+                title={p.title}
+                loading="lazy"
+                allowFullScreen
+                className="w-full max-w-[504px] h-[640px] border border-slate-200 rounded-lg bg-white"
+              />
+            ))}
+          </div>
+          <div className="text-center mt-10">
+            <a
+              href="https://www.linkedin.com/company/euromar-sa"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 border border-navy-900 text-navy-900 hover:bg-navy-900 hover:text-white font-semibold px-6 py-3 rounded-lg transition-all"
+            >
+              {({ es: "Seguinos en LinkedIn", pt: "Siga-nos no LinkedIn", zh: "在领英关注我们", ar: "تابعونا على لينكدإن", fr: "Suivez-nous sur LinkedIn", nl: "Volg ons op LinkedIn" } as Record<string, string>)[lang] ?? "Follow us on LinkedIn"} <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 bg-white">
         <div className="max-w-3xl mx-auto px-4 text-center">
