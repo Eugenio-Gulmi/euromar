@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowRight, Fish, Anchor, Globe, Shield } from "lucide-react";
 import { getDictionary, isValidLang, type Lang } from "@/lib/i18n";
+import linkedinPosts from "@/lib/linkedin-posts.json";
 
 const CDN = "";
 const productImages = [
@@ -183,19 +184,36 @@ export default async function HomePage({
               {({ es: "Ferias y novedades", pt: "Feiras e novidades", zh: "展会与动态", ar: "المعارض والأخبار", fr: "Salons et actualités", nl: "Beurzen en nieuws" } as Record<string, string>)[lang] ?? "Trade shows & news"}
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center">
-            {[
-              { urn: "urn:li:share:7520846869929959424", title: "Euromar at CIIE 2026, Shanghai" },
-              { urn: "urn:li:share:7520235389081776128", title: "Euromar at Seafood Show Latin America, São Paulo" },
-            ].map((p) => (
-              <iframe
-                key={p.urn}
-                src={`https://www.linkedin.com/embed/feed/update/${p.urn}`}
-                title={p.title}
-                loading="lazy"
-                allowFullScreen
-                className="w-full max-w-[504px] h-[640px] border border-slate-200 rounded-lg bg-white"
-              />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {linkedinPosts.slice(0, 4).map((p) => (
+              <a
+                key={p.id}
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col bg-white border border-slate-200 rounded-xl overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all"
+              >
+                {p.image ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={p.image} alt={p.event} loading="lazy" className="w-full aspect-[16/10] object-cover" />
+                ) : (
+                  <div className="bg-navy-900 px-5 py-6">
+                    <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-gold">
+                      {new Date(p.date + "T12:00:00Z").toLocaleDateString(lang, { month: "long", year: "numeric" })}
+                    </span>
+                    <p className="text-white font-bold text-lg leading-snug mt-1">{p.event}</p>
+                  </div>
+                )}
+                <div className="flex flex-col flex-1 p-5">
+                  <p className="text-sm text-slate-600 leading-relaxed line-clamp-5" dir="auto">{p.text}</p>
+                  <div className="mt-auto pt-4 flex items-center justify-between text-xs">
+                    <span className="font-semibold text-navy-900">{p.author}</span>
+                    <span className="inline-flex items-center gap-1 text-gold font-semibold group-hover:gap-2 transition-all">
+                      LinkedIn <ArrowRight className="w-3.5 h-3.5" />
+                    </span>
+                  </div>
+                </div>
+              </a>
             ))}
           </div>
           <div className="text-center mt-10">
