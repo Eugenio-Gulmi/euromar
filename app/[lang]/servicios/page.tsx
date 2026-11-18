@@ -10,7 +10,9 @@ import {
   Search,
   Thermometer,
 } from "lucide-react";
+import type { Metadata } from "next";
 import { getDictionary, isValidLang, type Lang } from "@/lib/i18n";
+import { alternatesFor } from "@/lib/seo";
 
 const serviceIcons = [
   Anchor,
@@ -23,6 +25,16 @@ const serviceIcons = [
   Search,
   Thermometer,
 ];
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  if (!isValidLang(lang)) return {};
+  return { alternates: alternatesFor(lang, "/servicios") };
+}
 
 export default async function ServiciosPage({
   params,

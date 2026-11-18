@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import { Fish, Waves, Droplets, UtensilsCrossed, MapPin, Calendar, Anchor, Shell } from "lucide-react";
+import type { Metadata } from "next";
 import { getDictionary, isValidLang, type Lang } from "@/lib/i18n";
+import { alternatesFor } from "@/lib/seo";
 
 const CDN = "";
 const icons = [Fish, Waves, Droplets, UtensilsCrossed];
@@ -341,6 +343,16 @@ const noteText: Record<SiteLang, string> = {
   ar: "* أشكال التغليف غير حصرية. يمكن تكييف كل منتج وفق احتياجات العميل من حيث العرض والحجم والشهادات.",
   pt: "* Os formatos de embalagem não são exclusivos. Todo produto pode ser adaptado às necessidades do cliente em termos de apresentação, tamanho e certificações.",
 };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  if (!isValidLang(lang)) return {};
+  return { alternates: alternatesFor(lang, "/productos") };
+}
 
 export default async function ProductosPage({
   params,

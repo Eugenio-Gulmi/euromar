@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowRight, Fish, Anchor, Globe, Shield } from "lucide-react";
+import type { Metadata } from "next";
 import { getDictionary, isValidLang, type Lang } from "@/lib/i18n";
+import { alternatesFor } from "@/lib/seo";
 
 const CDN = "";
 const productImages = [
@@ -10,6 +12,16 @@ const productImages = [
   `${CDN}/images/harina-pescado.jpg`,
   `${CDN}/images/apanados-bastones.jpg`,
 ];
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  if (!isValidLang(lang)) return {};
+  return { alternates: alternatesFor(lang, "") };
+}
 
 export default async function HomePage({
   params,

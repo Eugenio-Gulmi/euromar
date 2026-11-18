@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import { Phone, Mail, MapPin } from "lucide-react";
+import type { Metadata } from "next";
 import { getDictionary, isValidLang, type Lang } from "@/lib/i18n";
+import { alternatesFor } from "@/lib/seo";
 
 const CDN = "";
 
@@ -31,6 +33,16 @@ const contacts = [
 
 type LangKey = "es" | "en" | "zh";
 type ContactLang = LangKey | "pt";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  if (!isValidLang(lang)) return {};
+  return { alternates: alternatesFor(lang, "/contacto") };
+}
 
 export default async function ContactoPage({
   params,

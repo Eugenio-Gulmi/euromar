@@ -44,3 +44,12 @@ next-env.d.ts
 /Euromar/
 
 .vercel
+
+# mapas de archivos (locales)
+mapa.json
+drive.json
+
+# documentos internos: no van a este repo (es público)
+LOG.md
+ROADMAP.md
+MAPA.md

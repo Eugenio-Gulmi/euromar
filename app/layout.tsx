@@ -6,6 +6,7 @@ import "./globals.css";
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://euromar.com.ar"),
   title: "Euromar SA | Comercialización Internacional de Mariscos",
   description:
     "Empresa argentina de exportación de pescados y mariscos con más de 45 años de experiencia. Exportamos a todo el mundo desde Mar del Plata.",
